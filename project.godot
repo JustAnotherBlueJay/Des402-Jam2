@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="DES402-Jam2"
 
+[global_group]
+
+Players=""
+
 [input]
 
 player_1_move_up={

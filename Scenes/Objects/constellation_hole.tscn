@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://454nmektfag3"]
+
+[ext_resource type="Script" uid="uid://ddqmaw3672ggg" path="res://Scenes/Objects/ConstellationHole.cs" id="1_0dxx6"]
+[ext_resource type="Texture2D" uid="uid://dwp065cwc2pyw" path="res://Art/Ellipse 18 (1).png" id="1_v04r5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v04r5"]
+radius = 37.01351
+
+[node name="ConstellationHole" type="Node2D"]
+script = ExtResource("1_0dxx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_v04r5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_v04r5")

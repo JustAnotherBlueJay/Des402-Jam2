@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt1evvnt1wfv2"]
+
+[ext_resource type="PackedScene" uid="uid://454nmektfag3" path="res://Scenes/Objects/constellation_hole.tscn" id="1_bmydo"]
+
+[node name="Constellation" type="Node2D"]
+
+[node name="ConstellationHole" parent="." instance=ExtResource("1_bmydo")]

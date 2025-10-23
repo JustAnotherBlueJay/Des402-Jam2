@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb487l35na6eo"]
 
-[ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://PlayerController.cs" id="1_kvv6r"]
+[ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://Scripts/PlayerController.cs" id="1_kvv6r"]
 [ext_resource type="Texture2D" uid="uid://7d645rc5jad6" path="res://icon.svg" id="2_picsy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 67.26812
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Players"]]
 script = ExtResource("1_kvv6r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
