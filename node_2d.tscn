@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://0wt03bh28w46"]
+[gd_scene load_steps=2 format=3 uid="uid://0wt03bh28w46"]
 
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://7d645rc5jad6" path="res://icon.svg" id="2_epypp"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,17 +10,3 @@ position = Vector2(145, 111)
 [node name="Player2" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(367, 142)
 playerID = 1
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(500, 1000)
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(0, -750)
-scale = Vector2(8.232544, 3.9585829)
-texture = ExtResource("2_epypp")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Node2D"]
-position = Vector2(750, 0)
-rotation = 1.5707964
-scale = Vector2(8.232544, 3.9585829)
-texture = ExtResource("2_epypp")
