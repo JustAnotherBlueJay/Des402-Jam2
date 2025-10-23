@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://0wt03bh28w46"]
 
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://sky_stargaze_brighter.jpg" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="2_0e48y"]
 
 [node name="Node2D" type="Node2D"]
 
