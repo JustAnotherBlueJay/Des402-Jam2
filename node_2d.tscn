@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0wt03bh28w46"]
+[gd_scene load_steps=3 format=3 uid="uid://0wt03bh28w46"]
 
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://sky_stargaze_brighter.jpg" id="2_0e48y"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -10,3 +11,20 @@ position = Vector2(145, 111)
 [node name="Player2" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(367, 142)
 playerID = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 1868.0
+offset_bottom = 1796.0
+scale = Vector2(0.55487394, 0.55487394)
+texture = ExtResource("2_0e48y")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = -1.0
+offset_top = 995.0
+offset_right = 1868.0
+offset_bottom = 2795.0
+scale = Vector2(0.55487394, 0.55487394)
+texture = ExtResource("2_0e48y")
+flip_v = true
