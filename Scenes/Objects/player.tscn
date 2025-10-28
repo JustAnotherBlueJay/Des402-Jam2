@@ -1,10 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb487l35na6eo"]
+[gd_scene load_steps=7 format=3 uid="uid://cb487l35na6eo"]
 
 [ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://Scripts/PlayerController.cs" id="1_kvv6r"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="2_dfgsd"]
 [ext_resource type="Texture2D" uid="uid://7d645rc5jad6" path="res://icon.svg" id="2_picsy"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="3_xbekk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 67.26812
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dfgsd"]
+shader = ExtResource("2_dfgsd")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_xbekk")
 
 [node name="Player" type="CharacterBody2D" groups=["Players"]]
 script = ExtResource("1_kvv6r")
@@ -13,4 +22,5 @@ script = ExtResource("1_kvv6r")
 shape = SubResource("CircleShape2D_0hol4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_dfgsd")
 texture = ExtResource("2_picsy")
