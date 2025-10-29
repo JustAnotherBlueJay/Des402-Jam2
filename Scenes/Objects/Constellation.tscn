@@ -37,18 +37,22 @@ position = Vector2(-2, 0)
 [node name="Line1" type="Line2D" parent="StarLines"]
 position = Vector2(2, 0)
 points = PackedVector2Array(1890, -2817, -2021, 390)
+width = 50.0
 script = ExtResource("3_1uwjf")
 
 [node name="Line2" type="Line2D" parent="StarLines"]
 points = PackedVector2Array(-2019, 401, 1743, 3651)
+width = 50.0
 script = ExtResource("3_1uwjf")
 
 [node name="Line3" type="Line2D" parent="StarLines"]
 points = PackedVector2Array(1896, -2779, 2645, 24)
+width = 50.0
 script = ExtResource("3_1uwjf")
 
 [node name="Line4" type="Line2D" parent="StarLines"]
 points = PackedVector2Array(2683, 120, 1705, 3690)
+width = 50.0
 script = ExtResource("3_1uwjf")
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
