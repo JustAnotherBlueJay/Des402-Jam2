@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhlnijb6vkokt"]
+
+[ext_resource type="Script" uid="uid://wv3x5svig3im" path="res://Scripts/StarPoint.cs" id="1_ttnbf"]
+[ext_resource type="Texture2D" uid="uid://dwp065cwc2pyw" path="res://Art/Ellipse 18 (1).png" id="2_ccr58"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ncbb"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_ttnbf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(75, 75)
+shape = SubResource("CircleShape2D_1ncbb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ccr58")

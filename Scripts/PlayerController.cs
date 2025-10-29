@@ -18,18 +18,18 @@ public partial class PlayerController : CharacterBody2D
 
 		Vector2 direction = GetInputDirection();
 
-        if (direction != Vector2.Zero)
+		if (direction != Vector2.Zero)
 		{
 			velocity = new Vector2(direction.X * speed, direction.Y * speed);
 		}
 		else
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
-            velocity.Y = Mathf.MoveToward(Velocity.Y, 0, speed);
+			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, speed);
 
-        }
+		}
 
-        Velocity = velocity;
+		Velocity = velocity;
 		MoveAndSlide();
 	}
 

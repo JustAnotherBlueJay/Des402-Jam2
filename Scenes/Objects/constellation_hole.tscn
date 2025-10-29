@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://454nmektfag3"]
 
-[ext_resource type="Script" uid="uid://ddqmaw3672ggg" path="res://Scenes/Objects/ConstellationHole.cs" id="1_0dxx6"]
+[ext_resource type="Script" uid="uid://ddqmaw3672ggg" path="res://Scripts/ConstellationHole.cs" id="1_0dxx6"]
 [ext_resource type="Texture2D" uid="uid://dwp065cwc2pyw" path="res://Art/Ellipse 18 (1).png" id="1_v04r5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v04r5"]
