@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://0wt03bh28w46"]
+[gd_scene load_steps=7 format=3 uid="uid://0wt03bh28w46"]
 
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_d21ai"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://dt1evvnt1wfv2" path="res://Scenes/Objects/Constellation.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="2_epypp"]
-[ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Objects/Constellation.tscn" id="4_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="5_kdubu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
+shader = ExtResource("1_d21ai")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("5_kdubu")
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
+material = SubResource("ShaderMaterial_q6r6c")
 offset_left = -1.0
 offset_top = -4.0
 offset_right = 1868.0
