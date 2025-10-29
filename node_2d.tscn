@@ -25,6 +25,7 @@ scale = Vector2(0.55487394, 0.55487394)
 texture = ExtResource("2_epypp")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
 offset_left = -1.0
 offset_top = 995.0
 offset_right = 1868.0
@@ -33,12 +34,15 @@ scale = Vector2(0.55487394, 0.55487394)
 texture = ExtResource("2_epypp")
 flip_v = true
 
-[node name="Constellation" parent="." instance=ExtResource("2_0e48y")]
-position = Vector2(660, 163)
-
 [node name="Player" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(145, 111)
+scale = Vector2(0.5, 0.5)
 
 [node name="Player2" parent="." instance=ExtResource("1_wtcfe")]
 position = Vector2(367, 142)
+scale = Vector2(0.5, 0.5)
 playerID = 1
+
+[node name="Node2D" parent="." instance=ExtResource("4_0hol4")]
+position = Vector2(746, 254)
+scale = Vector2(0.05, 0.05)
