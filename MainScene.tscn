@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://0wt03bh28w46"]
+
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
+[ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
+[ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
+[ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Objects/Constellation.tscn" id="5_p5x2j"]
+[ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="6_yvb8b"]
+[ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
+shader = ExtResource("1_5crlr")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("2_hbc2u")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5crlr"]
+size = Vector2(1050, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbc2u"]
+size = Vector2(20, 533)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_q6r6c")
+offset_left = -1.0
+offset_top = -4.0
+offset_right = 1868.0
+offset_bottom = 1796.0
+scale = Vector2(0.55487394, 0.55487394)
+texture = ExtResource("3_torvr")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+offset_left = -1.0
+offset_top = 995.0
+offset_right = 1868.0
+offset_bottom = 2795.0
+scale = Vector2(0.55487394, 0.55487394)
+texture = ExtResource("3_torvr")
+flip_v = true
+
+[node name="Player" parent="." instance=ExtResource("4_8xkvn")]
+position = Vector2(145, 111)
+scale = Vector2(0.5, 0.5)
+
+[node name="Player2" parent="." instance=ExtResource("4_8xkvn")]
+position = Vector2(275, 87)
+scale = Vector2(0.5, 0.5)
+playerID = 1
+
+[node name="Node2D" parent="." node_paths=PackedStringArray("stars", "lines", "lineStarA", "lineStarB") instance=ExtResource("5_p5x2j")]
+visible = false
+position = Vector2(746, 254)
+scale = Vector2(0.05, 0.05)
+stars = []
+lines = []
+lineStarA = []
+lineStarB = []
+
+[node name="Node2D2" parent="." node_paths=PackedStringArray("stars", "lines", "lineStarA", "lineStarB") instance=ExtResource("6_yvb8b")]
+visible = false
+position = Vector2(668, 178)
+scale = Vector2(0.025, 0.025)
+stars = []
+lines = []
+lineStarA = []
+lineStarB = []
+
+[node name="Node2D4" parent="." instance=ExtResource("7_3hf6u")]
+position = Vector2(624, 294)
+scale = Vector2(0.03, 0.03)
+
+[node name="OuterWalls" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="OuterWalls"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OuterWalls/StaticBody2D"]
+position = Vector2(515, 0)
+shape = SubResource("RectangleShape2D_5crlr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OuterWalls/StaticBody2D"]
+position = Vector2(515, 517)
+shape = SubResource("RectangleShape2D_5crlr")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OuterWalls/StaticBody2D"]
+position = Vector2(0, 256.5)
+shape = SubResource("RectangleShape2D_hbc2u")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="OuterWalls/StaticBody2D"]
+position = Vector2(1028, 257)
+shape = SubResource("RectangleShape2D_hbc2u")
