@@ -7,6 +7,7 @@
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB")]
 script = ExtResource("1_l7ij0")
+TargetPosition = Vector2(746, 254)
 creature = NodePath("SeaCreature")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4")]
 lines = [NodePath("StarLines/Line1"), NodePath("StarLines/Line2"), NodePath("StarLines/Line3"), NodePath("StarLines/Line4")]
@@ -56,5 +57,6 @@ width = 50.0
 script = ExtResource("3_1uwjf")
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
+position = Vector2(746, 254)
 scale = Vector2(5, 5)
 texture = ExtResource("3_ya4nr")

@@ -7,6 +7,7 @@
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB")]
 script = ExtResource("1_c7uwu")
+TargetPosition = Vector2(668, 178)
 creature = NodePath("SeaCreature")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5")]
 lines = [NodePath("StarLines2/Line1"), NodePath("StarLines2/Line2"), NodePath("StarLines2/Line3"), NodePath("StarLines2/Line4")]
