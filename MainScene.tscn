@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=13 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
@@ -7,6 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://cjgrxa03mkq5y" path="res://Art/Background/ocean_new.png" id="7_5crlr"]
+
+[sub_resource type="Environment" id="Environment_5crlr"]
+background_mode = 3
+sdfgi_bounce_feedback = 0.0
+glow_enabled = true
+glow_bloom = 0.5
+glow_blend_mode = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_5crlr")
@@ -29,6 +36,9 @@ shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5crlr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_q6r6c")
