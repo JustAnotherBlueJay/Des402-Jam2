@@ -62,14 +62,16 @@ public partial class GameManager : Node2D
 
 	var c = constellations[currentIndex];
 
-	// Fade out current constellation
+	// fades out current constellation
 	FadeConstellation(c, fadeIn: false);
 
 	// Wait for fade duration plus optional extra delay
 	float delayBetween = 4.5f; // seconds
 	await ToSignal(GetTree().CreateTimer(fadeDuration + delayBetween), "timeout");
+	
+	
 
-	// Move to next constellation
+	// Move onto next constellation
 	currentIndex++;
 	if (currentIndex >= constellations.Length)
 	{
@@ -77,7 +79,7 @@ public partial class GameManager : Node2D
 		return;
 	}
 
-	// Fade in next constellation
+	// fades in next constellation
 	ShowConstellation(currentIndex);
 }
 
@@ -88,9 +90,9 @@ public partial class GameManager : Node2D
 	c.Visible = visible;
 
 	if (visible)
-		c.Position = c.TargetPosition; // on-screen
+		c.Position = c.TargetPosition; // on screen now
 	else
-		c.Position = new Vector2(c.TargetPosition.X, -1000); // off-screen
+		c.Position = new Vector2(c.TargetPosition.X, -1000); // off-screen now
 }
 
 	private void FadeConstellation(Constellation c, bool fadeIn)

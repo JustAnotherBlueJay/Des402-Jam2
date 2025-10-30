@@ -13,7 +13,7 @@ public partial class Constellation : Node2D
 	//rules for Jason (and me) on how to make more constellations
 	[Export] private Sprite2D creature;               // drag the current sea creature sprite here
 	[Export] private StarPoint[] stars;                // drag all StarPoints here
-	[Export] private Line2D[] lines;                   // drag all Line2Ds here
+	[Export] private Node2D[] lines;                   // drag all Lines here
 	[Export] private StarPoint[] lineStarA;            // For each line, drag its "start" star
 	[Export] private StarPoint[] lineStarB;            // For each line, drag its "end" star
 	

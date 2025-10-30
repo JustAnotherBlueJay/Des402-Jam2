@@ -54,9 +54,9 @@ public partial class PlayerController : CharacterBody2D
 		return Vector2.Zero;
 	}
 
-	public void LockToStar(Vector2 starPos)
+	public void LockToStar(Vector2 starPos, bool setActive)
 	{
-		active = false;
+		active = setActive;
 
 		Position = starPos;
 	}

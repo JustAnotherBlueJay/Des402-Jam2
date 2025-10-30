@@ -1,7 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=16 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
+[ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
+[ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Objects/Constellation.tscn" id="2_8xkvn"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
+[ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="3_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
@@ -37,10 +40,30 @@ shader_parameter/noise = ExtResource("2_hbc2u")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
+script = ExtResource("1_hbc2u")
+constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Volans")]
+
+[node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
+position = Vector2(516, 174.99998)
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+TargetPosition = Vector2(516, 174.99998)
+
+[node name="Hydrus" parent="GameManager" instance=ExtResource("3_p5x2j")]
+position = Vector2(572.99994, 141.99998)
+scale = Vector2(0.02, 0.02)
+TargetPosition = Vector2(572.99994, 141.99998)
+
+[node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
+position = Vector2(528, 212)
+scale = Vector2(0.02, 0.02)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5crlr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_q6r6c")
 offset_left = -1.0
 offset_top = -4.0
@@ -70,10 +93,6 @@ playerID = 1
 
 [node name="Sprite2D" parent="Player2" index="1"]
 texture = ExtResource("6_5crlr")
-
-[node name="Node2D4" parent="." instance=ExtResource("7_3hf6u")]
-position = Vector2(528, 212)
-scale = Vector2(0.02, 0.02)
 
 [node name="OuterWalls" type="Node2D" parent="."]
 
