@@ -4,28 +4,20 @@ using System.Collections.Generic;
 
 public partial class Constellation : Node2D
 {
-	
 	[Signal]
 	public delegate void ConstellationCompleteEventHandler();
 	
-	[Export] public Vector2 TargetPosition = new Vector2(0, 0); 
+	[Export] public Vector2 TargetPosition = new Vector2(0, 0);
 	
-	/*private void TriggerComplete()
-{
-	EmitSignal(SignalName.ConstellationFinished);
-}*/
 	
 	//rules for Jason (and me) on how to make more constellations
 	[Export] private Sprite2D creature;               // drag the current sea creature sprite here
 	[Export] private StarPoint[] stars;                // drag all StarPoints here
-	[Export] private StarLine[] lines;                   // drag all Line2Ds here
+	[Export] private Line2D[] lines;                   // drag all Line2Ds here
 	[Export] private StarPoint[] lineStarA;            // For each line, drag its "start" star
 	[Export] private StarPoint[] lineStarB;            // For each line, drag its "end" star
-
-
+	
 	public Sprite2D SeaCreature => creature;
-
-
 
 	public override void _Ready()
 	{
@@ -41,17 +33,11 @@ public partial class Constellation : Node2D
 		}
 
 		// Hide all lines at start
-		GetTree().CallGroup("Lines", "HideLine");
-		//foreach (StarLine l in lines)
-		//{
-
-		//	//if (l != null)
-		//	//	l.Visible = false;
-		//	//else
-		//	//{
-		//	//	GD.Print("Null");
-		//	//}
-		//}
+		foreach (var l in lines)
+		{
+			if (l != null)
+				l.Visible = false;
+		}
 		
 		UpdateLines();
 
@@ -60,9 +46,6 @@ public partial class Constellation : Node2D
 
 	private void OnStarCompleted()
 	{
-		if (!Visible) 
-		return;
-		
 		GD.Print("Star completed signal received!");
 		UpdateLines();
 
@@ -90,15 +73,12 @@ public partial class Constellation : Node2D
 
 		for (int i = 0; i < lines.Length; i++)
 		{
-            var line = lines[i] as StarLine;
-
-
+			var line = lines[i];
 			if (line == null || i >= lineStarA.Length || i >= lineStarB.Length)
 				continue;
 
 			var a = lineStarA[i];
 			var b = lineStarB[i];
-
 
 			if (a == null || b == null)
 				continue;
@@ -106,11 +86,7 @@ public partial class Constellation : Node2D
 			// Show line if both stars are complete
 			if (a.IsComplete && b.IsComplete)
 			{
-				//line.Visible = true;
-
-				GD.Print("Showing Line");
-				line.ShowLine();
-
+				line.Visible = true;
 				linesShown++;
 			}
 			else
@@ -119,7 +95,7 @@ public partial class Constellation : Node2D
 			}
 		}
 
-		//GD.Print($"Showing {linesShown} lines.");
+		GD.Print($"Showing {linesShown} lines.");
 	}
 
 	private async void FadeInCreature()
