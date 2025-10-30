@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://0wt03bh28w46"]
+[gd_scene load_steps=12 format=3 uid="uid://0wt03bh28w46"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
-[ext_resource type="Texture2D" uid="uid://csotioum1qw5s" path="res://Art/PlayerSymbols/cat_symbol.png" id="5_a814b"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
+[ext_resource type="Texture2D" uid="uid://cjgrxa03mkq5y" path="res://Art/Background/ocean_new.png" id="7_5crlr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_5crlr")
@@ -20,6 +20,13 @@ size = Vector2(1050, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbc2u"]
 size = Vector2(20, 533)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5crlr"]
+shader = ExtResource("1_5crlr")
+shader_parameter/scale = Vector2(20, 20)
+shader_parameter/strength = 0.25
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("2_hbc2u")
 
 [node name="Node2D" type="Node2D"]
 
@@ -46,9 +53,6 @@ flip_v = true
 position = Vector2(145, 111)
 scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" parent="Player" index="1"]
-texture = ExtResource("5_a814b")
-
 [node name="Player2" parent="." instance=ExtResource("4_8xkvn")]
 position = Vector2(275, 87)
 scale = Vector2(0.4, 0.4)
@@ -58,8 +62,8 @@ playerID = 1
 texture = ExtResource("6_5crlr")
 
 [node name="Node2D4" parent="." instance=ExtResource("7_3hf6u")]
-position = Vector2(624, 294)
-scale = Vector2(0.03, 0.03)
+position = Vector2(528, 212)
+scale = Vector2(0.02, 0.02)
 
 [node name="OuterWalls" type="Node2D" parent="."]
 
@@ -81,6 +85,12 @@ shape = SubResource("RectangleShape2D_hbc2u")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="OuterWalls/StaticBody2D"]
 position = Vector2(1028, 257)
 shape = SubResource("RectangleShape2D_hbc2u")
+
+[node name="OceanNew" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_5crlr")
+position = Vector2(510, 41)
+scale = Vector2(0.5675, 0.5675)
+texture = ExtResource("7_5crlr")
 
 [editable path="Player"]
 [editable path="Player2"]

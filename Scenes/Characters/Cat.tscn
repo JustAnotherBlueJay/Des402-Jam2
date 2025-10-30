@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://h0ubcwm4ycaa"]
+
+[ext_resource type="Texture2D" uid="uid://dd4o6yf7dgxlv" path="res://Art/AnimalArt/Cat/cat_no_arm.png" id="1_b0fyy"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_xe338"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_2iex8"]
+[ext_resource type="Texture2D" uid="uid://bgxlnhdhat5tw" path="res://Art/AnimalArt/Cat/cat_arm.png" id="2_55nb3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68bsn"]
+shader = ExtResource("1_xe338")
+shader_parameter/scale = Vector2(5, 5)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("2_2iex8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3pky"]
+shader = ExtResource("1_xe338")
+shader_parameter/scale = Vector2(5, 5)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("2_2iex8")
+
+[node name="CatNoArm" type="Sprite2D"]
+z_index = 3
+material = SubResource("ShaderMaterial_68bsn")
+rotation = -0.0015001522
+texture = ExtResource("1_b0fyy")
+
+[node name="CatArm" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_m3pky")
+position = Vector2(88.02991, -19.867949)
+rotation = 0.586873
+texture = ExtResource("2_55nb3")
