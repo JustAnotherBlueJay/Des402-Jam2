@@ -1,17 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhlnijb6vkokt"]
+[gd_scene load_steps=7 format=3 uid="uid://bhlnijb6vkokt"]
 
 [ext_resource type="Script" uid="uid://wv3x5svig3im" path="res://Scripts/StarPoint.cs" id="1_ttnbf"]
-[ext_resource type="Texture2D" uid="uid://dwp065cwc2pyw" path="res://Art/Ellipse 18 (1).png" id="2_ccr58"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="2_y44xo"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="3_bc0cd"]
+[ext_resource type="Texture2D" uid="uid://csch8sogfef1t" path="res://Art/Constellations/star.png" id="4_y44xo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ncbb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y44xo"]
+shader = ExtResource("2_y44xo")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_bc0cd")
 
 [node name="Area2D" type="Area2D"]
 collision_layer = 2
 script = ExtResource("1_ttnbf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 scale = Vector2(75, 75)
 shape = SubResource("CircleShape2D_1ncbb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ccr58")
+material = SubResource("ShaderMaterial_y44xo")
+scale = Vector2(17, 17)
+texture = ExtResource("4_y44xo")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1rlavjrpyau8"]
+
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_12imy"]
+[ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="1_l2wkx"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_l2wkx"]
+[ext_resource type="Texture2D" uid="uid://b7oip0myybics" path="res://Scenes/Objects/Frame 17.png" id="3_12imy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mlw00"]
+shader = ExtResource("1_12imy")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("2_l2wkx")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_562yf"]
+size = Vector2(992, 96)
+
+[node name="StarLine" type="Node2D" node_paths=PackedStringArray("mySprite", "myStaticBody") groups=["Lines"]]
+script = ExtResource("1_l2wkx")
+mySprite = NodePath("Sprite2D")
+myStaticBody = NodePath("StaticBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mlw00")
+texture = ExtResource("3_12imy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_562yf")

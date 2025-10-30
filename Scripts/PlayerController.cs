@@ -8,10 +8,17 @@ public partial class PlayerController : CharacterBody2D
 	[Export] private int playerID;
 
 	float speed = 300.0f;
+	private bool active = true;
 
 
 	public override void _PhysicsProcess(double delta)
 	{
+
+		if (!active)
+		{
+			return;
+		}
+
 		Vector2 velocity = Velocity;
 
 		// Get the input direction and handle the movement/deceleration.
@@ -45,5 +52,12 @@ public partial class PlayerController : CharacterBody2D
 		}
 
 		return Vector2.Zero;
+	}
+
+	public void LockToStar(Vector2 starPos)
+	{
+		active = false;
+
+		Position = starPos;
 	}
 }

@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://Scripts/PlayerController.cs" id="1_kvv6r"]
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="2_dfgsd"]
-[ext_resource type="Texture2D" uid="uid://7d645rc5jad6" path="res://icon.svg" id="2_picsy"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="3_xbekk"]
+[ext_resource type="Texture2D" uid="uid://csotioum1qw5s" path="res://Art/PlayerSymbols/cat_symbol.png" id="4_dfgsd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
-radius = 67.26812
+radius = 29.017237
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dfgsd"]
 shader = ExtResource("2_dfgsd")
@@ -24,4 +24,4 @@ shape = SubResource("CircleShape2D_0hol4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_dfgsd")
-texture = ExtResource("2_picsy")
+texture = ExtResource("4_dfgsd")
