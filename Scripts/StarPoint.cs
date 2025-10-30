@@ -43,6 +43,9 @@ public partial class StarPoint : Area2D
 
 		if (body is PlayerController)
 		{
+			PlayerController pc = body as PlayerController;
+			pc.LockToStar(GlobalPosition);
+
 			IsComplete = true;
 			UpdateVisual();
 			EmitSignal(SignalName.StarCompleted);
