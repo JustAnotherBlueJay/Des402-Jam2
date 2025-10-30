@@ -2,84 +2,88 @@
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_njqr5"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Objects/StarPoint.tscn" id="2_g8r76"]
-[ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="3_eqyel"]
 [ext_resource type="Texture2D" uid="uid://lc2nju4rmryu" path="res://Art/640x427-dolphin_bottlenose_nb_w.png" id="4_3ym50"]
+[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="4_g8r76"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB")]
 script = ExtResource("1_njqr5")
 creature = NodePath("SeaCreature")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6")]
-lines = [NodePath("StarLines2/Line1"), NodePath("StarLines2/Line2"), NodePath("StarLines2/Line3"), NodePath("StarLines2/Line4"), NodePath("StarLines2/Line5"), NodePath("StarLines2/Line6"), NodePath("StarLines2/Line7")]
+lines = [NodePath("StarLines2/StarLine"), NodePath("StarLines2/StarLine2"), NodePath("StarLines2/StarLine3")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star5")]
 
 [node name="StarPoints" type="Node2D" parent="."]
 
 [node name="Star1" parent="StarPoints" instance=ExtResource("2_g8r76")]
+z_index = 1
 position = Vector2(-11610, -2656)
 IsComplete = true
 
 [node name="Star2" parent="StarPoints" instance=ExtResource("2_g8r76")]
+z_index = 1
 position = Vector2(-4292, -7274)
 IsComplete = true
 
 [node name="Star3" parent="StarPoints" instance=ExtResource("2_g8r76")]
+z_index = 1
 position = Vector2(-819, 0)
 IsTarget = true
 
 [node name="Star4" parent="StarPoints" instance=ExtResource("2_g8r76")]
+z_index = 1
 position = Vector2(6608, 4745)
 IsComplete = true
 
 [node name="Star5" parent="StarPoints" instance=ExtResource("2_g8r76")]
+z_index = 1
 position = Vector2(11172, 0)
 IsComplete = true
 
 [node name="Star6" parent="StarPoints" instance=ExtResource("2_g8r76")]
+z_index = 1
 position = Vector2(-10878, 2500)
 IsTarget = true
 
 [node name="StarLines2" type="Node2D" parent="."]
 position = Vector2(-2, 0)
 
-[node name="Line1" type="Line2D" parent="StarLines2"]
-position = Vector2(5334, 2549)
-scale = Vector2(0.99400526, 1.1890376)
-points = PackedVector2Array(-9637.775, -8130.9463, -6166.969, -2097.4949)
-width = 50.0
-script = ExtResource("3_eqyel")
+[node name="StarLine" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(-2505.0002, -3651.0002)
+rotation = 1.1306655
+scale = Vector2(6.770299, 0.99999994)
 
-[node name="Line2" type="Line2D" parent="StarLines2"]
-points = PackedVector2Array(-11584, -2574, -796, 164)
-width = 50.0
-script = ExtResource("3_eqyel")
+[node name="StarLine2" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(-6313, -1292)
+rotation = 0.23302929
+scale = Vector2(9.804736, 0.99999994)
+
+[node name="StarLine3" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(-8001.001, -5071)
+rotation = -0.53651315
+scale = Vector2(7.4051695, 0.99999994)
 
 [node name="Line3" type="Line2D" parent="StarLines2"]
+process_mode = 4
 points = PackedVector2Array(-686, -55, 6543, 4764)
 width = 50.0
-script = ExtResource("3_eqyel")
 
 [node name="Line4" type="Line2D" parent="StarLines2"]
+process_mode = 4
 position = Vector2(15005, -8005)
 points = PackedVector2Array(-3862, 8060, -15746, 8060)
 width = 50.0
-script = ExtResource("3_eqyel")
 
 [node name="Line5" type="Line2D" parent="StarLines2"]
+process_mode = 4
 position = Vector2(15005, -8005)
 points = PackedVector2Array(-25866, 10554, -15746, 8060)
 width = 50.0
-script = ExtResource("3_eqyel")
-
-[node name="Line6" type="Line2D" parent="StarLines2"]
-points = PackedVector2Array(-11584, -2574, -4299, -7182)
-width = 50.0
-script = ExtResource("3_eqyel")
 
 [node name="Line7" type="Line2D" parent="StarLines2"]
+process_mode = 4
 points = PackedVector2Array(11225, 14, 6543, 4764)
 width = 50.0
-script = ExtResource("3_eqyel")
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
