@@ -1,10 +1,28 @@
 using Godot;
 using System;
 
-public partial class StarLine : Line2D
+public partial class StarLine : Node2D
 {
-  //[Export] public StarPoint StarA;
-	//[Export] public StarPoint StarB;
+    [Export] Sprite2D mySprite;
+    [Export] StaticBody2D myStaticBody;
 
-	//public bool ShouldBeVisible => StarA != null && StarB != null && StarA.IsComplete && StarB.IsComplete;
+
+
+    public override void _Ready()
+    {
+    }
+
+    public void HideLine()
+    {
+        mySprite.Hide();
+        myStaticBody.SetCollisionLayerValue(2,false);
+    }
+
+    public void ShowLine()
+    {
+        GD.Print("Showing Sprite");
+        Visible = true;
+        myStaticBody.SetCollisionLayerValue(2,true);
+        mySprite.Show();
+    }
 }
