@@ -29,6 +29,7 @@ project/assembly_name="DES402-Jam2"
 [global_group]
 
 Players=""
+Lines=""
 
 [input]
 

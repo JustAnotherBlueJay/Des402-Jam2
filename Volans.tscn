@@ -9,7 +9,7 @@
 script = ExtResource("1_njqr5")
 creature = NodePath("SeaCreature")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6")]
-lines = [NodePath("StarLines2/StarLine"), NodePath("StarLines2/StarLine2"), NodePath("StarLines2/StarLine3")]
+lines = [NodePath("StarLines2/StarLine"), NodePath("StarLines2/StarLine2"), NodePath("StarLines2/StarLine6"), NodePath("StarLines2/StarLine7"), NodePath("StarLines2/StarLine4"), NodePath("StarLines2/StarLine3"), NodePath("StarLines2/StarLine5")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star5")]
 
@@ -63,27 +63,25 @@ position = Vector2(-8001.001, -5071)
 rotation = -0.53651315
 scale = Vector2(7.4051695, 0.99999994)
 
-[node name="Line3" type="Line2D" parent="StarLines2"]
-process_mode = 4
-points = PackedVector2Array(-686, -55, 6543, 4764)
-width = 50.0
+[node name="StarLine4" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(-5887, 1316.0001)
+rotation = -0.23044112
+scale = Vector2(8.949169, 0.99999994)
 
-[node name="Line4" type="Line2D" parent="StarLines2"]
-process_mode = 4
-position = Vector2(15005, -8005)
-points = PackedVector2Array(-3862, 8060, -15746, 8060)
-width = 50.0
+[node name="StarLine5" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(8837, 2431)
+rotation = -0.8274876
+scale = Vector2(5.3010454, 0.99999994)
 
-[node name="Line5" type="Line2D" parent="StarLines2"]
-process_mode = 4
-position = Vector2(15005, -8005)
-points = PackedVector2Array(-25866, 10554, -15746, 8060)
-width = 50.0
+[node name="StarLine6" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(2961, 2406.0002)
+rotation = -2.6015587
+scale = Vector2(7.508522, 0.99999994)
 
-[node name="Line7" type="Line2D" parent="StarLines2"]
-process_mode = 4
-points = PackedVector2Array(11225, 14, 6543, 4764)
-width = 50.0
+[node name="StarLine7" parent="StarLines2" instance=ExtResource("4_g8r76")]
+position = Vector2(5147, -57)
+rotation = -3.149316
+scale = Vector2(10.593378, 0.99999994)
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)

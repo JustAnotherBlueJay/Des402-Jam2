@@ -1,17 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://0wt03bh28w46"]
+[gd_scene load_steps=9 format=3 uid="uid://0wt03bh28w46"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
-[ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Objects/Constellation.tscn" id="5_p5x2j"]
-[ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="6_yvb8b"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6r6c"]
 shader = ExtResource("1_5crlr")
 shader_parameter/scale = Vector2(1, 1)
-shader_parameter/strength = 1.0
+shader_parameter/strength = 3.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
 
@@ -50,24 +48,6 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(275, 87)
 scale = Vector2(0.5, 0.5)
 playerID = 1
-
-[node name="Node2D" parent="." node_paths=PackedStringArray("stars", "lines", "lineStarA", "lineStarB") instance=ExtResource("5_p5x2j")]
-visible = false
-position = Vector2(746, 254)
-scale = Vector2(0.05, 0.05)
-stars = []
-lines = []
-lineStarA = []
-lineStarB = []
-
-[node name="Node2D2" parent="." node_paths=PackedStringArray("stars", "lines", "lineStarA", "lineStarB") instance=ExtResource("6_yvb8b")]
-visible = false
-position = Vector2(668, 178)
-scale = Vector2(0.025, 0.025)
-stars = []
-lines = []
-lineStarA = []
-lineStarB = []
 
 [node name="Node2D4" parent="." instance=ExtResource("7_3hf6u")]
 position = Vector2(624, 294)
