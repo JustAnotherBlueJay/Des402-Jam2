@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://0wt03bh28w46"]
+[gd_scene load_steps=12 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
