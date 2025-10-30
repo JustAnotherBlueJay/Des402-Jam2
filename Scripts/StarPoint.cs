@@ -40,6 +40,8 @@ public partial class StarPoint : Area2D
 		GD.Print("You has touched star");
 		if (IsComplete || !IsTarget)
 			return;
+			
+			
 
 		if (body is PlayerController)
 		{
