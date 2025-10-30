@@ -4,12 +4,28 @@ using System.Collections.Generic;
 
 public partial class Constellation : Node2D
 {
+	
+	[Signal]
+	public delegate void ConstellationCompleteEventHandler();
+	
+	[Export] public Vector2 TargetPosition = new Vector2(0, 0); 
+	
+	/*private void TriggerComplete()
+{
+	EmitSignal(SignalName.ConstellationFinished);
+}*/
+	
 	//rules for Jason (and me) on how to make more constellations
 	[Export] private Sprite2D creature;               // drag the current sea creature sprite here
 	[Export] private StarPoint[] stars;                // drag all StarPoints here
 	[Export] private StarLine[] lines;                   // drag all Line2Ds here
 	[Export] private StarPoint[] lineStarA;            // For each line, drag its "start" star
 	[Export] private StarPoint[] lineStarB;            // For each line, drag its "end" star
+
+
+	public Sprite2D SeaCreature => creature;
+
+
 
 	public override void _Ready()
 	{
@@ -44,6 +60,9 @@ public partial class Constellation : Node2D
 
 	private void OnStarCompleted()
 	{
+		if (!Visible) 
+		return;
+		
 		GD.Print("Star completed signal received!");
 		UpdateLines();
 
@@ -51,6 +70,7 @@ public partial class Constellation : Node2D
 		{
 			GD.Print("Constellation complete!");
 			FadeInCreature();
+			EmitSignal(SignalName.ConstellationComplete);
 		}
 	}
 
