@@ -52,7 +52,7 @@ public partial class Constellation : Node2D
 		if (AllTargetsComplete())
 		{
 			GD.Print("Constellation complete!");
-			FadeInCreature();
+			FadeCreature(true);
 			EmitSignal(SignalName.ConstellationComplete);
 		}
 	}
@@ -98,12 +98,12 @@ public partial class Constellation : Node2D
 		GD.Print($"Showing {linesShown} lines.");
 	}
 
-	private async void FadeInCreature()
+	private async void FadeCreature(bool fadeIn)
 	{
 		if (creature == null) return;
 
 		var tween = CreateTween();
-		tween.TweenProperty(creature, "modulate:a", 1f, 2f);
+		tween.TweenProperty(creature, "modulate:a", fadeIn ? 1f : 0f, 2f);
 		await ToSignal(tween, Tween.SignalName.Finished);
 	}
 }

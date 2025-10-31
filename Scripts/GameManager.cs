@@ -62,17 +62,20 @@ public partial class GameManager : Node2D
 
 	var c = constellations[currentIndex];
 
-	// fades out current constellation
-	FadeConstellation(c, fadeIn: false);
+		float delayBetween = 1.5f;
+		await ToSignal(GetTree().CreateTimer(fadeDuration + delayBetween), "timeout");
 
-	// Wait for fade duration plus optional extra delay
-	float delayBetween = 4.5f; // seconds
-	await ToSignal(GetTree().CreateTimer(fadeDuration + delayBetween), "timeout");
-	
-	
+		// fades out current constellation
+		FadeConstellation(c, fadeIn: false);
 
-	// Move onto next constellation
-	currentIndex++;
+		// Wait for fade duration plus optional extra delay
+
+		delayBetween = 4.5f;
+		await ToSignal(GetTree().CreateTimer(fadeDuration + delayBetween), "timeout");
+
+
+		// Move onto next constellation
+		currentIndex++;
 	if (currentIndex >= constellations.Length)
 	{
 		GD.Print("[GM] All constellations complete!");
@@ -107,7 +110,7 @@ public partial class GameManager : Node2D
 	foreach (Node child in c.GetChildren())
 	{
 		// Skip the creature sprite
-		if (child == c.SeaCreature) 
+		if (child == c.SeaCreature && fadeIn) 
 			continue;
 
 		if (child is CanvasItem canvas)

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_l7ij0"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Objects/StarPoint.tscn" id="2_o11bg"]
 [ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="3_1uwjf"]
-[ext_resource type="Texture2D" uid="uid://lc2nju4rmryu" path="res://Art/640x427-dolphin_bottlenose_nb_w.png" id="3_ya4nr"]
+[ext_resource type="Texture2D" uid="uid://s5lyr23lh252" path="res://Assets/limpet.png" id="4_1uwjf"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB")]
 script = ExtResource("1_l7ij0")
@@ -57,6 +57,8 @@ width = 50.0
 script = ExtResource("3_1uwjf")
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
-position = Vector2(746, 254)
-scale = Vector2(5, 5)
-texture = ExtResource("3_ya4nr")
+z_index = 11
+position = Vector2(-1691.9999, 599.99994)
+rotation = -1.5707964
+scale = Vector2(7, 7)
+texture = ExtResource("4_1uwjf")
