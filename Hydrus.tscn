@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="3_quctt"]
 [ext_resource type="Texture2D" uid="uid://lc2nju4rmryu" path="res://Art/640x427-dolphin_bottlenose_nb_w.png" id="4_t2jlb"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_c7uwu")
 TargetPosition = Vector2(668, 178)
 creature = NodePath("SeaCreature")
@@ -13,6 +13,7 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines2/Line1"), NodePath("StarLines2/Line2"), NodePath("StarLines2/Line3"), NodePath("StarLines2/Line4")]
 lineStarA = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5")]
+playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
 
 [node name="StarPoints" type="Node2D" parent="."]
 
@@ -64,3 +65,9 @@ script = ExtResource("3_quctt")
 [node name="SeaCreature" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
 texture = ExtResource("4_t2jlb")
+
+[node name="Player1StartPos" type="Node2D" parent="."]
+position = Vector2(-8161.9995, -5912)
+
+[node name="Player2StartPos" type="Node2D" parent="."]
+position = Vector2(6321, 8582)

@@ -45,17 +45,22 @@ script = ExtResource("1_hbc2u")
 constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Volans")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
+visible = false
+z_index = 1
 position = Vector2(516, 174.99998)
 rotation = 1.5707964
 scale = Vector2(0.05, 0.05)
 TargetPosition = Vector2(516, 174.99998)
 
 [node name="Hydrus" parent="GameManager" instance=ExtResource("3_p5x2j")]
+z_index = 1
 position = Vector2(572.99994, 141.99998)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(572.99994, 141.99998)
 
 [node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
+visible = false
+z_index = 1
 position = Vector2(528, 212)
 scale = Vector2(0.02, 0.02)
 
@@ -63,7 +68,6 @@ scale = Vector2(0.02, 0.02)
 environment = SubResource("Environment_5crlr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_q6r6c")
 offset_left = -1.0
 offset_top = -4.0
@@ -83,10 +87,12 @@ texture = ExtResource("3_torvr")
 flip_v = true
 
 [node name="Player" parent="." instance=ExtResource("4_8xkvn")]
+z_index = 5
 position = Vector2(145, 111)
 scale = Vector2(0.5, 0.5)
 
 [node name="Player2" parent="." instance=ExtResource("4_8xkvn")]
+z_index = 5
 position = Vector2(275, 87)
 scale = Vector2(0.4, 0.4)
 playerID = 1
@@ -121,5 +127,9 @@ position = Vector2(510, 41)
 scale = Vector2(0.5675, 0.5675)
 texture = ExtResource("7_5crlr")
 
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(408, 24.88)
+
+[editable path="GameManager/Hydrus"]
 [editable path="Player"]
 [editable path="Player2"]
