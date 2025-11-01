@@ -16,6 +16,8 @@ public partial class Constellation : Node2D
 	[Export] private Node2D[] lines;                   // drag all Lines here
 	[Export] private StarPoint[] lineStarA;            // For each line, drag its "start" star
 	[Export] private StarPoint[] lineStarB;            // For each line, drag its "end" star
+
+	[Export] private Node2D[] playerStartPositions; 	//where the player will spawn when the constellation is loaded
 	
 	public Sprite2D SeaCreature => creature;
 
@@ -38,6 +40,9 @@ public partial class Constellation : Node2D
 			if (l != null)
 				l.Visible = false;
 		}
+
+		//calling the lines group to hide on start
+		GetTree().CallGroup("Lines","HideLine");
 		
 		UpdateLines();
 
@@ -86,8 +91,19 @@ public partial class Constellation : Node2D
 			// Show line if both stars are complete
 			if (a.IsComplete && b.IsComplete)
 			{
-				line.Visible = true;
-				linesShown++;
+				//try and see if the lines are StarLines, if they are show them that way
+				//if they are the old lines then show them that way
+				try
+				{
+					StarLine starLine = line as StarLine;
+					starLine.ShowLine();
+				}
+				catch(Exception)
+				{
+					line.Visible = true;
+					linesShown++;
+
+				}
 			}
 			else
 			{
@@ -105,5 +121,11 @@ public partial class Constellation : Node2D
 		var tween = CreateTween();
 		tween.TweenProperty(creature, "modulate:a", fadeIn ? 1f : 0f, 2f);
 		await ToSignal(tween, Tween.SignalName.Finished);
+	}
+
+	public Vector2 GetPlayerStartPosition(int playerID)
+	{
+		return playerStartPositions[playerID].GlobalPosition;
+
 	}
 }

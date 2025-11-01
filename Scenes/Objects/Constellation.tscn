@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="3_1uwjf"]
 [ext_resource type="Texture2D" uid="uid://s5lyr23lh252" path="res://Assets/limpet.png" id="4_1uwjf"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_l7ij0")
 TargetPosition = Vector2(746, 254)
 creature = NodePath("SeaCreature")
@@ -13,6 +13,7 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/Line1"), NodePath("StarLines/Line2"), NodePath("StarLines/Line3"), NodePath("StarLines/Line4")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star1")]
 lineStarB = [NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3")]
+playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
 
 [node name="StarPoints" type="Node2D" parent="."]
 
@@ -62,3 +63,9 @@ position = Vector2(-1691.9999, 599.99994)
 rotation = -1.5707964
 scale = Vector2(7, 7)
 texture = ExtResource("4_1uwjf")
+
+[node name="Player1StartPos" type="Node2D" parent="."]
+position = Vector2(-2614, 2918)
+
+[node name="Player2StartPos" type="Node2D" parent="."]
+position = Vector2(3042, -4526)

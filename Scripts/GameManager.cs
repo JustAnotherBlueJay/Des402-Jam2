@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 
 public partial class GameManager : Node2D
@@ -6,10 +7,21 @@ public partial class GameManager : Node2D
 	[Export] private Constellation[] constellations; 
 	[Export] private float fadeDuration = 1.5f;
 
+	//Event called when a constellation is completed
+	static public Action E_ConstellationCompleted;
+	//Event called when a new constellation is loaded
+	static public Action E_NewConstellationLoaded;
 	private int currentIndex = 0;
+
+	//to make it easier to reference this script
+	public static GameManager instance;
 
 	public override void _Ready()
 	{
+		//setting up the singleton
+		instance = this;
+
+
 		GD.Print($"[GM] Ready. Total constellations = {constellations.Length}");
 
 		// Hide all constellations at start
@@ -60,6 +72,9 @@ public partial class GameManager : Node2D
 {
 	GD.Print("[GM] Constellation finished!");
 
+	//constellation completed event called
+	E_ConstellationCompleted();
+
 	var c = constellations[currentIndex];
 
 		float delayBetween = 1.5f;
@@ -83,6 +98,7 @@ public partial class GameManager : Node2D
 	}
 
 	// fades in next constellation
+	E_NewConstellationLoaded();
 	ShowConstellation(currentIndex);
 }
 
@@ -95,7 +111,7 @@ public partial class GameManager : Node2D
 	if (visible)
 		c.Position = c.TargetPosition; // on screen now
 	else
-		c.Position = new Vector2(c.TargetPosition.X, -1000); // off-screen now
+		c.Position = new Vector2(c.TargetPosition.X, c.TargetPosition.Y - 2000); // off-screen now
 }
 
 	private void FadeConstellation(Constellation c, bool fadeIn)
@@ -120,4 +136,18 @@ public partial class GameManager : Node2D
 		}
 	}
 }
+
+	//get the start position of the player for the next constelation
+	static public Vector2 GetPlayerStartPosition(int playerID)
+	{
+		//the constelation we are transitioning to
+		Constellation currentConstellation = instance.constellations[instance.currentIndex + 1]; 
+
+		//get the position of the player spawn point
+		Vector2 playerStartPos = currentConstellation.GetPlayerStartPosition(playerID);
+		//add 200 cause the constellations get moved off screen
+		playerStartPos.Y += 2000;
+		
+		return playerStartPos;
+	}
 }
