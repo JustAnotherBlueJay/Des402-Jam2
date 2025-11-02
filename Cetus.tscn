@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_83g4i"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Objects/StarPoint.tscn" id="2_hynlv"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="3_shpog"]
-[ext_resource type="Texture2D" uid="uid://lc2nju4rmryu" path="res://Art/640x427-dolphin_bottlenose_nb_w.png" id="4_oe7gx"]
+[ext_resource type="Texture2D" uid="uid://de8ug20r5tjws" path="res://Assets/cetus.png" id="4_83g4i"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_83g4i")
@@ -114,9 +114,10 @@ rotation = -3.6651917
 scale = Vector2(4.2, 1)
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
-position = Vector2(-7228.9995, 3442.9998)
-scale = Vector2(5, 5)
-texture = ExtResource("4_oe7gx")
+z_index = 12
+position = Vector2(4072.0002, 1337)
+scale = Vector2(27, 27)
+texture = ExtResource("4_83g4i")
 
 [node name="Player1StartPos" type="Node2D" parent="."]
 position = Vector2(374, -6434)
