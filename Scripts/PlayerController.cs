@@ -14,11 +14,14 @@ public partial class PlayerController : CharacterBody2D
 	float deceleration = 30f;
 	private bool active = true;
 
+	private GpuParticles2D starParticles;
     public override void _Ready()
     {
 		//connecting to the game managers events
 		GameManager.E_ConstellationCompleted += OnConstellationCompleted;
 		GameManager.E_NewConstellationLoaded += OnNewConstellationLoaded;
+
+		starParticles = GetNode<GpuParticles2D>("./StarParticles");
     }
     public override void _PhysicsProcess(double delta)
 	{
@@ -70,6 +73,8 @@ public partial class PlayerController : CharacterBody2D
 		active = setActive;
 
 		Position = starPos;
+
+		EmitStars();
 	}
 
 	public async void OnConstellationCompleted()
@@ -107,6 +112,12 @@ public partial class PlayerController : CharacterBody2D
 
 		tween.TweenProperty(this, "modulate:a", 1, 1.5f);
 		await ToSignal(tween, "finished"); 
+	}
+
+	//enables the star explosion particle effect
+	private void EmitStars()
+	{
+		starParticles.Emitting = true;
 	}
 
 
