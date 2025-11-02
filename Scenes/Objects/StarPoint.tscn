@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://bhlnijb6vkokt"]
 
 [ext_resource type="Script" uid="uid://wv3x5svig3im" path="res://Scripts/StarPoint.cs" id="1_ttnbf"]
-[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="2_y44xo"]
-[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="3_bc0cd"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="2_y44xo"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="3_bc0cd"]
 [ext_resource type="Texture2D" uid="uid://csch8sogfef1t" path="res://Art/Constellations/star.png" id="4_y44xo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1ncbb"]

@@ -95,8 +95,10 @@ public partial class Constellation : Node2D
 				//if they are the old lines then show them that way
 				try
 				{
+				
 					StarLine starLine = line as StarLine;
-					starLine.ShowLine();
+
+					if (!starLine.isVisible) {starLine.ShowLine();}
 				}
 				catch(Exception)
 				{

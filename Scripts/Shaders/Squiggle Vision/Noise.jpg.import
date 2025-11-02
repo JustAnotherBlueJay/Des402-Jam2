@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmp8pa4vm5f8n"
-path="res://.godot/imported/Noise.jpg-72fe2cf2ddc682fdb7ecfc058182499e.ctex"
+path="res://.godot/imported/Noise.jpg-f90cb99eb2010f7e076b0b8799ffc8ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/Shaders/Noise.jpg"
-dest_files=["res://.godot/imported/Noise.jpg-72fe2cf2ddc682fdb7ecfc058182499e.ctex"]
+source_file="res://Scripts/Shaders/Squiggle Vision/Noise.jpg"
+dest_files=["res://.godot/imported/Noise.jpg-f90cb99eb2010f7e076b0b8799ffc8ea.ctex"]
 
 [params]
 

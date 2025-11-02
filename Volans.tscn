@@ -1,9 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://d5nh520ve6q3"]
+[gd_scene load_steps=11 format=3 uid="uid://d5nh520ve6q3"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_njqr5"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Objects/StarPoint.tscn" id="2_g8r76"]
 [ext_resource type="Texture2D" uid="uid://lc2nju4rmryu" path="res://Art/640x427-dolphin_bottlenose_nb_w.png" id="4_3ym50"]
+[ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="4_4qttt"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="4_g8r76"]
+[ext_resource type="Shader" uid="uid://dd0vb100pmrpv" path="res://Scripts/Shaders/ConstellationLineShader.gdshader" id="5_d3snl"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="6_1trcs"]
+[ext_resource type="Texture2D" uid="uid://b7oip0myybics" path="res://Scenes/Objects/Frame 17.png" id="7_makow"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_562yf"]
+size = Vector2(992, 96)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nftgn"]
+shader = ExtResource("5_d3snl")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("6_1trcs")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/smoothness = 0.0
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_njqr5")
@@ -80,10 +96,24 @@ position = Vector2(2961, 2406.0002)
 rotation = -2.6015587
 scale = Vector2(7.508522, 0.99999994)
 
-[node name="StarLine7" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine7" type="Node2D" parent="StarLines2" node_paths=PackedStringArray("mySprite", "myStaticBody") groups=["Lines"]]
 position = Vector2(5147, -57)
 rotation = -3.149316
 scale = Vector2(10.593378, 0.99999994)
+script = ExtResource("4_4qttt")
+mySprite = NodePath("Sprite2D")
+myStaticBody = NodePath("StaticBody2D")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StarLines2/StarLine7"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StarLines2/StarLine7/StaticBody2D"]
+shape = SubResource("RectangleShape2D_562yf")
+
+[node name="Sprite2D" type="Sprite2D" parent="StarLines2/StarLine7"]
+material = SubResource("ShaderMaterial_nftgn")
+instance_shader_parameters/progress = 1.0
+texture = ExtResource("7_makow")
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
 scale = Vector2(5, 5)
