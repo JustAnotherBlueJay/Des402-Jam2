@@ -8,7 +8,10 @@ public partial class PlayerController : CharacterBody2D
 {
 	[Export] private int playerID;
 
-	float speed = 300.0f;
+	float maxSpeed = 300.0f;
+
+	float acceleration = 10f;
+	float deceleration = 30f;
 	private bool active = true;
 
     public override void _Ready()
@@ -25,7 +28,6 @@ public partial class PlayerController : CharacterBody2D
 			return;
 		}
 
-		Vector2 velocity = Velocity;
 
 		// Get the input direction and handle the movement/deceleration.
 
@@ -33,16 +35,16 @@ public partial class PlayerController : CharacterBody2D
 
 		if (direction != Vector2.Zero)
 		{
-			velocity = new Vector2(direction.X * speed, direction.Y * speed);
+			//velocity moves towards Direction * maxSpeed by the amount of acceleration  
+			Velocity = Velocity.MoveToward(direction * maxSpeed, acceleration);
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, speed);
-			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, speed);
+			// Velocity gradually lowered to 0
+			Velocity = Velocity.MoveToward(Vector2.Zero, deceleration);
 
 		}
 
-		Velocity = velocity;
 		MoveAndSlide();
 	}
 
