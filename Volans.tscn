@@ -26,10 +26,10 @@ script = ExtResource("1_njqr5")
 TargetPosition = Vector2(528, 212)
 creature = NodePath("SeaCreature")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6")]
-lines = [NodePath("StarLines2/StarLine"), NodePath("StarLines2/StarLine2"), NodePath("StarLines2/StarLine6"), NodePath("StarLines2/StarLine7"), NodePath("StarLines2/StarLine4"), NodePath("StarLines2/StarLine3"), NodePath("StarLines2/StarLine5")]
+lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine5")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star5")]
-playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
+playerStartPositions = []
 
 [node name="StarPoints" type="Node2D" parent="."]
 
@@ -63,40 +63,40 @@ z_index = 1
 position = Vector2(-10878, 2500)
 IsTarget = true
 
-[node name="StarLines2" type="Node2D" parent="."]
+[node name="StarLines" type="Node2D" parent="."]
 position = Vector2(-2, 0)
 
-[node name="StarLine" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(-2505.0002, -3651.0002)
 rotation = 1.1306655
 scale = Vector2(6.770299, 0.99999994)
 
-[node name="StarLine2" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine2" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(-6313, -1292)
 rotation = 0.23302929
 scale = Vector2(9.804736, 0.99999994)
 
-[node name="StarLine3" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine3" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(-8001.001, -5071)
 rotation = -0.53651315
 scale = Vector2(7.4051695, 0.99999994)
 
-[node name="StarLine4" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine4" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(-5887, 1316.0001)
 rotation = -0.23044112
 scale = Vector2(8.949169, 0.99999994)
 
-[node name="StarLine5" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine5" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(8837, 2431)
 rotation = -0.8274876
 scale = Vector2(5.3010454, 0.99999994)
 
-[node name="StarLine6" parent="StarLines2" instance=ExtResource("4_g8r76")]
+[node name="StarLine6" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(2961, 2406.0002)
 rotation = -2.6015587
 scale = Vector2(7.508522, 0.99999994)
 
-[node name="StarLine7" type="Node2D" parent="StarLines2" node_paths=PackedStringArray("mySprite", "myStaticBody") groups=["Lines"]]
+[node name="StarLine7" type="Node2D" parent="StarLines" node_paths=PackedStringArray("mySprite", "myStaticBody") groups=["Lines"]]
 position = Vector2(5147, -57)
 rotation = -3.149316
 scale = Vector2(10.593378, 0.99999994)
@@ -104,13 +104,13 @@ script = ExtResource("4_4qttt")
 mySprite = NodePath("Sprite2D")
 myStaticBody = NodePath("StaticBody2D")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="StarLines2/StarLine7"]
+[node name="StaticBody2D" type="StaticBody2D" parent="StarLines/StarLine7"]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StarLines2/StarLine7/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StarLines/StarLine7/StaticBody2D"]
 shape = SubResource("RectangleShape2D_562yf")
 
-[node name="Sprite2D" type="Sprite2D" parent="StarLines2/StarLine7"]
+[node name="Sprite2D" type="Sprite2D" parent="StarLines/StarLine7"]
 material = SubResource("ShaderMaterial_nftgn")
 instance_shader_parameters/progress = 1.0
 texture = ExtResource("7_makow")
@@ -120,7 +120,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("4_3ym50")
 
 [node name="Player1StartPos" type="Node2D" parent="."]
-position = Vector2(374, -6434)
+position = Vector2(-14287, -6098)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
-position = Vector2(6770, -3179)
+position = Vector2(14690, -3442)
