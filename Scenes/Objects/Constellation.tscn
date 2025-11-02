@@ -57,7 +57,6 @@ rotation = -4.450631
 scale = Vector2(2.2, 1)
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
-visible = false
 z_index = 11
 position = Vector2(-2402, 619)
 rotation = -1.5707964
