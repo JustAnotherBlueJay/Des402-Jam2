@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=29 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -18,7 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://co35326bst7gd" path="res://Assets/cat_no_arm.png" id="15_x0cd2"]
 [ext_resource type="Texture2D" uid="uid://c8vkbyvefxj6s" path="res://Assets/cat_arm.png" id="16_3slyh"]
 [ext_resource type="Texture2D" uid="uid://d2sh0hsrfj7pb" path="res://Assets/crow_no_arm.png" id="16_8s4c3"]
+[ext_resource type="Script" uid="uid://ckj5l47gyo4fr" path="res://Scripts/PointingArm.cs" id="17_xtmsi"]
 [ext_resource type="Texture2D" uid="uid://chv6k54px6ikx" path="res://Assets/crow_arm.png" id="18_xtmsi"]
+[ext_resource type="Script" uid="uid://x5u3nv1f04gg" path="res://Scripts/BoatRock.cs" id="21_anuui"]
 
 [sub_resource type="Environment" id="Environment_5crlr"]
 background_mode = 3
@@ -47,17 +49,17 @@ shader_parameter/strength = 0.25
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3slyh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mctxq"]
 shader = ExtResource("1_5crlr")
-shader_parameter/scale = Vector2(1, 1)
+shader_parameter/scale = Vector2(5, 2)
 shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mctxq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3slyh"]
 shader = ExtResource("1_5crlr")
-shader_parameter/scale = Vector2(5, 2)
-shader_parameter/strength = 0.75
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
 
@@ -172,38 +174,51 @@ position = Vector2(408, 24.88)
 stream = ExtResource("11_p5x2j")
 autoplay = true
 
-[node name="CatNoArm" type="Sprite2D" parent="."]
-z_index = 9
-material = SubResource("ShaderMaterial_3slyh")
-position = Vector2(438, 409)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("15_x0cd2")
-
-[node name="Sprite2D" type="Sprite2D" parent="CatNoArm"]
-z_index = -1
-use_parent_material = true
-position = Vector2(99.999985, -44.999992)
-texture = ExtResource("16_3slyh")
-
-[node name="CrowNoArm" type="Sprite2D" parent="."]
-z_index = 9
-material = SubResource("ShaderMaterial_3slyh")
-position = Vector2(564, 409)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("16_8s4c3")
-
-[node name="Sprite2D" type="Sprite2D" parent="CrowNoArm"]
-z_index = -1
-use_parent_material = true
-position = Vector2(-84.99999, -9.999998)
-texture = ExtResource("18_xtmsi")
-
 [node name="Boat" type="Sprite2D" parent="."]
 z_index = 10
 material = SubResource("ShaderMaterial_mctxq")
 position = Vector2(503, 437)
-scale = Vector2(0.410584, 0.410584)
+scale = Vector2(0.41058397, 0.41058397)
 texture = ExtResource("15_mctxq")
+script = ExtResource("21_anuui")
+bobAmplitude = 4.0
+bobSpeed = 1.5
+rockAmplitude = 3.0
+
+[node name="CatNoArm" type="Sprite2D" parent="Boat"]
+z_index = -1
+material = SubResource("ShaderMaterial_3slyh")
+position = Vector2(-158.31104, -68.19556)
+scale = Vector2(0.48711106, 0.48711106)
+texture = ExtResource("15_x0cd2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boat/CatNoArm" node_paths=PackedStringArray("target")]
+z_index = -1
+use_parent_material = true
+position = Vector2(89.999985, -19.999994)
+texture = ExtResource("16_3slyh")
+script = ExtResource("17_xtmsi")
+target = NodePath("../../../Player")
+minAngle = -15.0
+maxAngle = 42.0
+angleModifier = -30.0
+
+[node name="CrowNoArm" type="Sprite2D" parent="Boat"]
+z_index = -1
+material = SubResource("ShaderMaterial_3slyh")
+position = Vector2(148.56897, -68.19556)
+scale = Vector2(0.48711106, 0.48711106)
+texture = ExtResource("16_8s4c3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Boat/CrowNoArm" node_paths=PackedStringArray("target")]
+z_index = -1
+use_parent_material = true
+position = Vector2(-84.99999, -9.999998)
+texture = ExtResource("18_xtmsi")
+script = ExtResource("17_xtmsi")
+target = NodePath("../../../Player2")
+maxAngle = 30.0
+angleModifier = 30.0
 
 [editable path="GameManager/Hydrus"]
 [editable path="GameManager/Volans"]
