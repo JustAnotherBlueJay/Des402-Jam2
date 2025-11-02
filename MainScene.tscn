@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=20 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="2_hbc2u"]
 [ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="3_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
+[ext_resource type="PackedScene" uid="uid://cwd0a5hofomdr" path="res://Delphinus.tscn" id="4_3hf6u"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
+[ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Cetus.tscn" id="6_4mcbk"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://f2b5xkc8wl3f" path="res://Art/Background/sky_now with PINK.png" id="7_yvb8b"]
@@ -44,27 +46,36 @@ shader_parameter/noise = ExtResource("2_hbc2u")
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
 script = ExtResource("1_hbc2u")
-constellations = [NodePath("Volans"), NodePath("Limpet"), NodePath("Hydrus")]
+constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Volans"), NodePath("Cetus")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
-visible = false
 z_index = 1
 position = Vector2(516, 174.99998)
 rotation = 1.5707964
 scale = Vector2(0.05, 0.05)
 TargetPosition = Vector2(516, 174.99998)
 
-[node name="Hydrus" parent="GameManager" instance=ExtResource("3_p5x2j")]
+[node name="Hydrus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("3_p5x2j")]
 z_index = 1
 position = Vector2(572.99994, 141.99998)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(572.99994, 141.99998)
+playerStartPositions = []
+
+[node name="Delphinus" parent="GameManager" instance=ExtResource("4_3hf6u")]
+position = Vector2(458, 212)
+scale = Vector2(0.02, 0.02)
+TargetPosition = Vector2(458, 212)
 
 [node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
-visible = false
 z_index = 1
 position = Vector2(528, 212)
 scale = Vector2(0.02, 0.02)
+
+[node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
+position = Vector2(432, 263.99994)
+scale = Vector2(0.015, 0.015)
+TargetPosition = Vector2(432, 263.99994)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5crlr")
