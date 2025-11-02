@@ -32,11 +32,8 @@ public partial class StarLine : Node2D
 	{
 		isVisible = true;
 
-		GD.Print("Showing Sprite, ", Name);
 		Visible = true;
 
-		GD.Print("Progress: ", mySprite.GetInstanceShaderParameter("progress"));
-		
 		FadeIn();
 		myStaticBody.SetCollisionLayerValue(2,true);
 		mySprite.Show();

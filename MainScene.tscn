@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="2_hbc2u"]
 [ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="3_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
-[ext_resource type="PackedScene" uid="uid://cwd0a5hofomdr" path="res://Delphinus.tscn" id="4_3hf6u"]
+[ext_resource type="PackedScene" uid="uid://dwwtsrtrfqvq2" path="res://Delphinus.tscn" id="4_3hf6u"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
-[ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Cetus.tscn" id="6_4mcbk"]
+[ext_resource type="PackedScene" path="res://Cetus.tscn" id="6_4mcbk"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://f2b5xkc8wl3f" path="res://Art/Background/sky_now with PINK.png" id="7_yvb8b"]
@@ -84,6 +84,7 @@ TargetPosition = Vector2(572.99994, 141.99998)
 
 [node name="Delphinus" parent="GameManager" instance=ExtResource("4_3hf6u")]
 visible = false
+z_index = 1
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
@@ -96,6 +97,7 @@ scale = Vector2(0.02, 0.02)
 
 [node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
 visible = false
+z_index = 1
 position = Vector2(432, 263.99994)
 scale = Vector2(0.015, 0.015)
 TargetPosition = Vector2(432, 263.99994)
