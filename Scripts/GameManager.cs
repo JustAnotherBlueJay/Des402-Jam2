@@ -50,6 +50,7 @@ public partial class GameManager : Node2D
 		FadeConstellation(constellations[currentIndex], fadeIn: false);
 		// Wait for fade out to finish before showing next
 		await ToSignal(GetTree().CreateTimer(fadeDuration + 0.5f), "timeout");
+		
 	}
 
 	// Move to target position (for off-screen handling)
@@ -87,6 +88,9 @@ public partial class GameManager : Node2D
 
 		delayBetween = 4.5f;
 		await ToSignal(GetTree().CreateTimer(fadeDuration + delayBetween), "timeout");
+		//tell the lines to hide themselves so that they can deal with collision
+		GetTree().CallGroup("Lines","HideLine");
+
 
 
 		// Move onto next constellation
