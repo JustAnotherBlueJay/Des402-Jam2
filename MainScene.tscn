@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=17 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://cjgrxa03mkq5y" path="res://Art/Background/ocean_new.png" id="7_5crlr"]
+[ext_resource type="AudioStream" uid="uid://dnku7x0rmms4d" path="res://Audio/Music/tideMusic.ogg" id="11_p5x2j"]
 
 [sub_resource type="Environment" id="Environment_5crlr"]
 background_mode = 3
@@ -129,6 +130,10 @@ texture = ExtResource("7_5crlr")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(408, 24.88)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_p5x2j")
+autoplay = true
 
 [editable path="GameManager/Hydrus"]
 [editable path="GameManager/Volans"]
