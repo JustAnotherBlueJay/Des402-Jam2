@@ -84,6 +84,7 @@ TargetPosition = Vector2(572.99994, 141.99998)
 
 [node name="Delphinus" parent="GameManager" instance=ExtResource("4_3hf6u")]
 visible = false
+z_index = 1
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
@@ -96,6 +97,7 @@ scale = Vector2(0.02, 0.02)
 
 [node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
 visible = false
+z_index = 1
 position = Vector2(432, 263.99994)
 scale = Vector2(0.015, 0.015)
 TargetPosition = Vector2(432, 263.99994)
