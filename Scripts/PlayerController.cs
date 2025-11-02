@@ -25,6 +25,8 @@ public partial class PlayerController : CharacterBody2D
 
 		if (!active)
 		{
+			//stops the player conserving momentum into the next constellation
+			Velocity = Vector2.Zero;
 			return;
 		}
 
@@ -44,7 +46,8 @@ public partial class PlayerController : CharacterBody2D
 			Velocity = Velocity.MoveToward(Vector2.Zero, deceleration);
 
 		}
-
+		//rotate the player by the angle of the players Y vector to velocity(diren of movement)
+		Rotate(Transform.Y.AngleTo(Velocity));
 		MoveAndSlide();
 	}
 
