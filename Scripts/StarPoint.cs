@@ -37,7 +37,6 @@ public partial class StarPoint : Area2D
 	
 	private void OnBodyEntered(Node2D body)
 	{
-		GD.Print("You has touched star");
 		if (IsComplete || !IsTarget)
 			return;
 			

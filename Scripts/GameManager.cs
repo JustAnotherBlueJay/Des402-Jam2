@@ -88,9 +88,9 @@ public partial class GameManager : Node2D
 
 		delayBetween = 4.5f;
 		await ToSignal(GetTree().CreateTimer(fadeDuration + delayBetween), "timeout");
+		
 		//tell the lines to hide themselves so that they can deal with collision
-		GetTree().CallGroup("Lines","HideLine");
-
+		c.HideLines();
 
 
 		// Move onto next constellation

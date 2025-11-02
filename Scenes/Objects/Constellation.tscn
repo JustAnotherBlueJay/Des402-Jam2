@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="3_1uwjf"]
 [ext_resource type="Texture2D" uid="uid://s5lyr23lh252" path="res://Assets/limpet.png" id="4_1uwjf"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_l7ij0")
 TargetPosition = Vector2(746, 254)
 creature = NodePath("SeaCreature")
@@ -57,7 +57,6 @@ rotation = -4.450631
 scale = Vector2(2.2, 1)
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
-visible = false
 z_index = 11
 position = Vector2(-2402, 619)
 rotation = -1.5707964

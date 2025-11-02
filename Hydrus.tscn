@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="3_c7uwu"]
 [ext_resource type="Texture2D" uid="uid://lc2nju4rmryu" path="res://Art/640x427-dolphin_bottlenose_nb_w.png" id="4_t2jlb"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
+[node name="Node2D2" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_c7uwu")
 TargetPosition = Vector2(668, 178)
 creature = NodePath("SeaCreature")
@@ -61,6 +61,7 @@ rotation = -2.9752471
 scale = Vector2(9.5, 1)
 
 [node name="SeaCreature" type="Sprite2D" parent="."]
+z_index = 10
 scale = Vector2(5, 5)
 texture = ExtResource("4_t2jlb")
 

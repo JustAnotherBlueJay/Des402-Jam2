@@ -35,15 +35,11 @@ public partial class Constellation : Node2D
 		}
 
 		// Hide all lines at start
-		foreach (var l in lines)
+		foreach (StarLine line in lines)
 		{
-			if (l != null)
-				l.Visible = false;
+			line.HideLine();
 		}
 
-		//calling the lines group to hide on start
-		GetTree().CallGroup("Lines","HideLine");
-		
 		UpdateLines();
 
 		GD.Print($" Found {stars.Length} stars and {lines.Length} lines.");
@@ -72,7 +68,7 @@ public partial class Constellation : Node2D
 		return true;
 	}
 
-	private void UpdateLines()
+	public void UpdateLines()
 	{
 		int linesShown = 0;
 
@@ -113,7 +109,7 @@ public partial class Constellation : Node2D
 			}
 		}
 
-		GD.Print($"Showing {linesShown} lines.");
+		// GD.Print($"Showing {linesShown} lines.");
 	}
 
 	private async void FadeCreature(bool fadeIn)
@@ -129,5 +125,13 @@ public partial class Constellation : Node2D
 	{
 		return playerStartPositions[playerID].GlobalPosition;
 
+	}
+
+	public void HideLines()
+	{
+		foreach (StarLine starLine in lines)
+		{
+			starLine.HideLine();
+		}
 	}
 }
