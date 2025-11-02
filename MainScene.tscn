@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://ck0ku6f1k2nem"]
 
-[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_5crlr"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
 [ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Objects/Constellation.tscn" id="2_8xkvn"]
-[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_hbc2u"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="2_hbc2u"]
 [ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="3_p5x2j"]
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
@@ -42,7 +42,7 @@ shader_parameter/noise = ExtResource("2_hbc2u")
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
 script = ExtResource("1_hbc2u")
-constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Volans")]
+constellations = [NodePath("Volans"), NodePath("Limpet"), NodePath("Hydrus")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
 visible = false
@@ -131,5 +131,8 @@ texture = ExtResource("7_5crlr")
 position = Vector2(408, 24.88)
 
 [editable path="GameManager/Hydrus"]
+[editable path="GameManager/Volans"]
+[editable path="GameManager/Volans/StarLines2/StarLine"]
+[editable path="GameManager/Volans/StarLines2/StarLine3"]
 [editable path="Player"]
 [editable path="Player2"]

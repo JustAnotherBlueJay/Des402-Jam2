@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://h0ubcwm4ycaa"]
 
 [ext_resource type="Texture2D" uid="uid://dd4o6yf7dgxlv" path="res://Art/AnimalArt/Cat/cat_no_arm.png" id="1_b0fyy"]
-[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/SquiggleVision.gdshader" id="1_xe338"]
-[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Noise.jpg" id="2_2iex8"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_xe338"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="2_2iex8"]
 [ext_resource type="Texture2D" uid="uid://bgxlnhdhat5tw" path="res://Art/AnimalArt/Cat/cat_arm.png" id="2_55nb3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_68bsn"]
