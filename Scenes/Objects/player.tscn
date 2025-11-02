@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb487l35na6eo"]
+[gd_scene load_steps=11 format=3 uid="uid://cb487l35na6eo"]
 
 [ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://Scripts/PlayerController.cs" id="1_kvv6r"]
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="2_dfgsd"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="3_xbekk"]
 [ext_resource type="Texture2D" uid="uid://csotioum1qw5s" path="res://Art/PlayerSymbols/cat_symbol.png" id="4_dfgsd"]
+[ext_resource type="Texture2D" uid="uid://csch8sogfef1t" path="res://Art/Constellations/star.png" id="5_xbekk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 29.017237
@@ -15,6 +16,29 @@ shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("3_xbekk")
 
+[sub_resource type="Curve" id="Curve_5uqce"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_h6i5h"]
+curve = SubResource("Curve_5uqce")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y42te"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 76.11
+angle_min = -154.29999
+angle_max = 25.70001
+angular_velocity_min = 0.9999839
+angular_velocity_max = 0.9999839
+radial_velocity_min = 149.99997
+radial_velocity_max = 149.99997
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.25
+color = Color(0.81262, 0.82, 0.59860003, 1)
+alpha_curve = SubResource("CurveTexture_h6i5h")
+
 [node name="Player" type="CharacterBody2D" groups=["Players"]]
 collision_mask = 2
 script = ExtResource("1_kvv6r")
@@ -23,5 +47,15 @@ script = ExtResource("1_kvv6r")
 shape = SubResource("CircleShape2D_0hol4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
 material = SubResource("ShaderMaterial_dfgsd")
 texture = ExtResource("4_dfgsd")
+
+[node name="StarParticles" type="GPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 10
+texture = ExtResource("5_xbekk")
+lifetime = 0.5
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_y42te")
