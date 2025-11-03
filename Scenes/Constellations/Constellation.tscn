@@ -81,3 +81,6 @@ position = Vector2(-2614, 2918)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
 position = Vector2(3042, -4526)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_jpnfu")
