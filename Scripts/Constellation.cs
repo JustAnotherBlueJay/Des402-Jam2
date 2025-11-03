@@ -17,8 +17,8 @@ public partial class Constellation : Node2D
 	[Export] private StarPoint[] lineStarA;            // For each line, drag its "start" star
 	[Export] private StarPoint[] lineStarB;            // For each line, drag its "end" star
 
-    [Export] public AudioStream fadeInSound;
-    private AudioStreamPlayer soundPlayer;
+    //[Export] public AudioStream fadeInSound;
+    //private AudioStreamPlayer soundPlayer;
 
     [Export] private Node2D[] playerStartPositions; 	//where the player will spawn when the constellation is loaded
 	
@@ -27,8 +27,8 @@ public partial class Constellation : Node2D
 	public override void _Ready()
 	{
 
-        soundPlayer = new AudioStreamPlayer();
-        AddChild(soundPlayer);
+        //soundPlayer = new AudioStreamPlayer();
+        //AddChild(soundPlayer);
 
         // Hide our sea creature initialy
         if (creature != null)
@@ -123,8 +123,7 @@ public partial class Constellation : Node2D
 	{
 		if (creature == null) return;
 
-        soundPlayer.Stream = fadeInSound;
-        soundPlayer.Play();
+        GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
 
         var tween = CreateTween();
 		tween.TweenProperty(creature, "modulate:a", fadeIn ? 1f : 0f, 2f);

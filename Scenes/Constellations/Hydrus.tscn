@@ -83,3 +83,6 @@ text = "Hydrus"
 position = Vector2(4334, 2041)
 scale = Vector2(15, 15)
 texture = ExtResource("4_c7uwu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0kktu")
