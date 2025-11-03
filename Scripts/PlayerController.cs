@@ -30,8 +30,8 @@ public partial class PlayerController : CharacterBody2D
 	
 	public override void _Input(InputEvent @craft)
 	{
-		if (Input.IsActionPressed("Spin") && !isSpinning)
-		{
+        if (((Input.IsActionPressed("player_1_spin") && playerID == 0) || (Input.IsActionPressed("player_2_spin") && playerID == 1)) && !isSpinning)
+        {
 			doSpin();
 		}
 	}
@@ -39,6 +39,8 @@ public partial class PlayerController : CharacterBody2D
 	private async void doSpin()
 	{
 		isSpinning = true;
+
+		EmitStars();
 
 		float targetRotation = Rotation + (Mathf.Tau * spinRevolutions);
 
