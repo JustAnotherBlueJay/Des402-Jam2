@@ -7,23 +7,52 @@ using System.Threading.Tasks;
 public partial class PlayerController : CharacterBody2D
 {
 	[Export] private int playerID;
+	
+	float spinDuration = 0.5f;
+	int spinRevolutions = 1;
 
 	float maxSpeed = 300.0f;
 
 	float acceleration = 10f;
 	float deceleration = 30f;
 	private bool active = true;
+	private bool isSpinning = false;
 
 	private GpuParticles2D starParticles;
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		//connecting to the game managers events
 		GameManager.E_ConstellationCompleted += OnConstellationCompleted;
 		GameManager.E_NewConstellationLoaded += OnNewConstellationLoaded;
 
 		starParticles = GetNode<GpuParticles2D>("./StarParticles");
-    }
-    public override void _PhysicsProcess(double delta)
+	}
+	
+	public override void _Input(InputEvent @craft)
+	{
+		if (((Input.IsActionPressed("player_1_spin") && playerID == 0) || (Input.IsActionPressed("player_2_spin") && playerID == 1)) && !isSpinning)
+		{
+			doSpin();
+		}
+	}
+
+	private async void doSpin()
+	{
+		isSpinning = true;
+
+		float targetRotation = Rotation + (Mathf.Tau * spinRevolutions);
+
+		var tween = CreateTween();
+		tween.TweenProperty(this, "rotation", targetRotation, spinDuration).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.InOut);
+
+		await ToSignal(tween, Tween.SignalName.Finished);
+
+		isSpinning = false;
+
+	}
+	
+	
+	public override void _PhysicsProcess(double delta)
 	{
 
 		if (!active)
@@ -68,7 +97,11 @@ public partial class PlayerController : CharacterBody2D
 		return Vector2.Zero;
 	}
 
-	public void LockToStar(Vector2 starPos, bool setActive)
+
+    
+
+
+    public void LockToStar(Vector2 starPos, bool setActive)
 	{
 		active = setActive;
 
