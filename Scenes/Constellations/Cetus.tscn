@@ -13,7 +13,6 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine5"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine8"), NodePath("StarLines/StarLine9"), NodePath("StarLines/StarLine10")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star9"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1")]
 lineStarB = [NodePath("StarPoints/Star5"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star9"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star4")]
-fadeInSound = ExtResource("2_hikkk")
 playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
 
 [node name="StarPoints" type="Node2D" parent="."]
@@ -141,3 +140,6 @@ texture = ExtResource("4_83g4i")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_hikkk")
+volume_db = -20.0
+pitch_scale = 0.5
+bus = &"SFX"

@@ -14,7 +14,6 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star1")]
 lineStarB = [NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3")]
-fadeInSound = ExtResource("2_jpnfu")
 playerStartPositions = []
 
 [node name="StarPoints" type="Node2D" parent="."]
@@ -84,3 +83,6 @@ position = Vector2(3042, -4526)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jpnfu")
+volume_db = -20.0
+pitch_scale = 0.5
+bus = &"SFX"
