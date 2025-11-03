@@ -43,8 +43,11 @@ public partial class PlayerController : CharacterBody2D
 		float targetRotation = Rotation + (Mathf.Tau * spinRevolutions);
 
 		var tween = CreateTween();
-		tween.TweenProperty(this, "rotation", targetRotation, spinDuration);
-		
+		tween.TweenProperty(this, "rotation", targetRotation, spinDuration).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.InOut);
+
+		await ToSignal(tween, Tween.SignalName.Finished);
+
+		isSpinning = false;
 
 	}
 	
