@@ -40,7 +40,8 @@ void fragment() {
 	float dist = distance(UV, center);
 	float alpha_mask = smoothstep(progress, progress - smoothness, dist);
 
-	tex_color.a *= 1.0 - alpha_mask;
+	//tex_color.a *= 1.0 - alpha_mask;
+	tex_color.a *= alpha_mask;
 
 	COLOR = tex_color;
 }

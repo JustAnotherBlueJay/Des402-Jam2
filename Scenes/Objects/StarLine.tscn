@@ -15,7 +15,7 @@ shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_l2wkx")
 shader_parameter/center = Vector2(0.5, 0.5)
-shader_parameter/smoothness = 0.0
+shader_parameter/smoothness = 0.1
 
 [node name="StarLine" type="Node2D" node_paths=PackedStringArray("mySprite", "myStaticBody") groups=["Lines"]]
 script = ExtResource("1_l2wkx")
@@ -30,5 +30,5 @@ shape = SubResource("RectangleShape2D_562yf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_nftgn")
-instance_shader_parameters/progress = 1.0
+instance_shader_parameters/progress = 0.0
 texture = ExtResource("3_12imy")
