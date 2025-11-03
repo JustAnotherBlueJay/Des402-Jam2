@@ -19,7 +19,7 @@ public partial class PlayerController : CharacterBody2D
 	float deceleration = 30f;
 	private bool active = true;
 	private bool isSpinning = false;
-	//private bool isJumping = false;
+	private bool isJumping = false;
 
 	private float defaultSize;  
 
@@ -76,10 +76,11 @@ public partial class PlayerController : CharacterBody2D
 
     public void doJump()
     {
+		isJumping = true;
 
         GetNode<AudioStreamPlayer>("JumpPlayer").Play();
 
-		float size = defaultSize;  this.Transform.Scale.X;
+		float size = defaultSize;  
 
 		float targetSize = size * 1.2f;
 			
@@ -100,6 +101,8 @@ public partial class PlayerController : CharacterBody2D
         // tween.TweenProperty(this, "skew", 0, jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.In);
 
         // tween.TweenProperty(this, "rotation", 0, jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.In);
+
+        isJumping = false;
     }
 
 
