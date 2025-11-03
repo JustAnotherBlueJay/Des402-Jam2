@@ -73,7 +73,10 @@ public partial class PlayerController : CharacterBody2D
 
     public void doJump()
     {
-		float size = this.Transform.Scale.X;
+
+        GetNode<AudioStreamPlayer>("JumpPlayer").Play();
+
+        float size = this.Transform.Scale.X;
 
 		float targetSize = size * 1.2f;
 			
