@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://j3wni6xo6hw4"]
+[gd_scene load_steps=6 format=3 uid="uid://j3wni6xo6hw4"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_83g4i"]
+[ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="2_hikkk"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="2_hynlv"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="3_shpog"]
 [ext_resource type="Texture2D" uid="uid://de8ug20r5tjws" path="res://Art/Constellations/cetus.png" id="4_83g4i"]
@@ -12,6 +13,7 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine5"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine8"), NodePath("StarLines/StarLine9"), NodePath("StarLines/StarLine10")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star9"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1")]
 lineStarB = [NodePath("StarPoints/Star5"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star9"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star4")]
+fadeInSound = ExtResource("2_hikkk")
 playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
 
 [node name="StarPoints" type="Node2D" parent="."]

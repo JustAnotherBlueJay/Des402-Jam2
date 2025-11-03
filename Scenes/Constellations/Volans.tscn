@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d5nh520ve6q3"]
+[gd_scene load_steps=12 format=3 uid="uid://d5nh520ve6q3"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_njqr5"]
+[ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="2_1765d"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="2_g8r76"]
 [ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="4_4qttt"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="4_g8r76"]
@@ -29,6 +30,7 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine5")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star5")]
+fadeInSound = ExtResource("2_1765d")
 playerStartPositions = []
 
 [node name="StarPoints" type="Node2D" parent="."]

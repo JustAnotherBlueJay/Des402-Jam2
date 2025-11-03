@@ -19,10 +19,17 @@ public partial class PlayerController : CharacterBody2D
 	private bool isSpinning = false;
 
 	private GpuParticles2D starParticles;
-	public override void _Ready()
+
+    [Export] public AudioStream spinSound;
+    private AudioStreamPlayer soundPlayer;
+    public override void _Ready()
 	{
-		//connecting to the game managers events
-		GameManager.E_ConstellationCompleted += OnConstellationCompleted;
+
+        soundPlayer = new AudioStreamPlayer();
+        AddChild(soundPlayer);
+
+        //connecting to the game managers events
+        GameManager.E_ConstellationCompleted += OnConstellationCompleted;
 		GameManager.E_NewConstellationLoaded += OnNewConstellationLoaded;
 
 		starParticles = GetNode<GpuParticles2D>("./StarParticles");
@@ -40,7 +47,10 @@ public partial class PlayerController : CharacterBody2D
 	{
 		isSpinning = true;
 
-		EmitStars();
+        soundPlayer.Stream = spinSound;
+        soundPlayer.Play();
+
+        EmitStars();
 
 		float targetRotation = Rotation + (Mathf.Tau * spinRevolutions);
 
