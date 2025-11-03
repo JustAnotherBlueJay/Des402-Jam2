@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bu2vfi57qlscu" path="res://Scripts/StarLine.cs" id="1_l2wkx"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="2_l2wkx"]
-[ext_resource type="Texture2D" uid="uid://b7oip0myybics" path="res://Scenes/Objects/Frame 17.png" id="3_12imy"]
+[ext_resource type="Texture2D" uid="uid://b7oip0myybics" path="res://Scenes/Misc/Frame 17.png" id="3_12imy"]
 [ext_resource type="Shader" uid="uid://dd0vb100pmrpv" path="res://Scripts/Shaders/ConstellationLineShader.gdshader" id="6_nftgn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_562yf"]

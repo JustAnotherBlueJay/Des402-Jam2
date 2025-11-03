@@ -15,15 +15,15 @@ public partial class PlayerController : CharacterBody2D
 	private bool active = true;
 
 	private GpuParticles2D starParticles;
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 		//connecting to the game managers events
 		GameManager.E_ConstellationCompleted += OnConstellationCompleted;
 		GameManager.E_NewConstellationLoaded += OnNewConstellationLoaded;
 
 		starParticles = GetNode<GpuParticles2D>("./StarParticles");
-    }
-    public override void _PhysicsProcess(double delta)
+	}
+	public override void _PhysicsProcess(double delta)
 	{
 
 		if (!active)

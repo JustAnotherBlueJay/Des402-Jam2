@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8vkbyvefxj6s"
-path="res://.godot/imported/cat_arm.png-647b7825df7f439036d3e389e5d366a0.ctex"
+uid="uid://d2sh0hsrfj7pb"
+path="res://.godot/imported/crow_no_arm.png-d3a37e607c3e9510d0576856210f23eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/cat_arm.png"
-dest_files=["res://.godot/imported/cat_arm.png-647b7825df7f439036d3e389e5d366a0.ctex"]
+source_file="res://Art/AnimalArt/Crow/crow_no_arm.png"
+dest_files=["res://.godot/imported/crow_no_arm.png-d3a37e607c3e9510d0576856210f23eb.ctex"]
 
 [params]
 

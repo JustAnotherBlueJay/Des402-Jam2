@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s5lyr23lh252"
-path="res://.godot/imported/limpet.png-7779b2e6eb4d1f38cc9baea4bce2f417.ctex"
+uid="uid://b7oip0myybics"
+path="res://.godot/imported/Frame 17.png-b583a0ce5b2dd3507c0d2309f0b26aa6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/limpet.png"
-dest_files=["res://.godot/imported/limpet.png-7779b2e6eb4d1f38cc9baea4bce2f417.ctex"]
+source_file="res://Scenes/Misc/Frame 17.png"
+dest_files=["res://.godot/imported/Frame 17.png-b583a0ce5b2dd3507c0d2309f0b26aa6.ctex"]
 
 [params]
 
