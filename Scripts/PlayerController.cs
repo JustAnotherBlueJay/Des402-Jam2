@@ -19,7 +19,9 @@ public partial class PlayerController : CharacterBody2D
 	float deceleration = 30f;
 	private bool active = true;
 	private bool isSpinning = false;
-    private bool isJumping = false;
+	//private bool isJumping = false;
+
+	private float defaultSize;  
 
     private GpuParticles2D starParticles;
 
@@ -28,8 +30,9 @@ public partial class PlayerController : CharacterBody2D
     //private AudioStreamPlayer soundPlayer;
     public override void _Ready()
 	{
+        defaultSize = this.Transform.Scale.X;
 
-       // soundPlayer = new AudioStreamPlayer();
+        // soundPlayer = new AudioStreamPlayer();
         //AddChild(soundPlayer);
 
         //connecting to the game managers events
@@ -76,7 +79,7 @@ public partial class PlayerController : CharacterBody2D
 
         GetNode<AudioStreamPlayer>("JumpPlayer").Play();
 
-        float size = this.Transform.Scale.X;
+		float size = defaultSize;  this.Transform.Scale.X;
 
 		float targetSize = size * 1.2f;
 			
