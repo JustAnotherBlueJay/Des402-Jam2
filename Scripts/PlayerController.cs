@@ -30,7 +30,7 @@ public partial class PlayerController : CharacterBody2D
 	
 	public override void _Input(InputEvent @craft)
 	{
-		if (Input.IsActionPressed("Spin") && !isSpinning)
+		if (((Input.IsActionPressed("player_1_spin") && playerID == 0) || (Input.IsActionPressed("player_2_spin") && playerID == 1)) && !isSpinning)
 		{
 			doSpin();
 		}
@@ -97,7 +97,11 @@ public partial class PlayerController : CharacterBody2D
 		return Vector2.Zero;
 	}
 
-	public void LockToStar(Vector2 starPos, bool setActive)
+
+    
+
+
+    public void LockToStar(Vector2 starPos, bool setActive)
 	{
 		active = setActive;
 
