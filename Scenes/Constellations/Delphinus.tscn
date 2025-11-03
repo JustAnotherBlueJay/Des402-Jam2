@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwd0a5hofomdr"]
+[gd_scene load_steps=5 format=3 uid="uid://dwwtsrtrfqvq2"]
 
-[ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Objects/StarPoint.tscn" id="1_4sdfi"]
+[ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="1_4sdfi"]
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_a5xa2"]
-[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="2_pw312"]
-[ext_resource type="Texture2D" uid="uid://djvqmeiut5fy2" path="res://Assets/delphinus.png" id="4_a5xa2"]
+[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="2_pw312"]
+[ext_resource type="Texture2D" uid="uid://djvqmeiut5fy2" path="res://Art/Constellations/delphinus.png" id="4_a5xa2"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_a5xa2")

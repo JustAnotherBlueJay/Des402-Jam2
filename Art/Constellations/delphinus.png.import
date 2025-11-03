@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcd7f6hhld8qv"
-path="res://.godot/imported/sky_stargaze_brighter.jpg-072cff8b1735afb3d754a9006f2fe035.ctex"
+uid="uid://djvqmeiut5fy2"
+path="res://.godot/imported/delphinus.png-0b493ad7ed579d2723ff4d9eb7d94e76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/sky_stargaze_brighter.jpg"
-dest_files=["res://.godot/imported/sky_stargaze_brighter.jpg-072cff8b1735afb3d754a9006f2fe035.ctex"]
+source_file="res://Art/Constellations/delphinus.png"
+dest_files=["res://.godot/imported/delphinus.png-0b493ad7ed579d2723ff4d9eb7d94e76.ctex"]
 
 [params]
 

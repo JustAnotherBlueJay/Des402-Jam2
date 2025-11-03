@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv5iejvqpngtu"
-path="res://.godot/imported/hydrus.png-d701cb629e4bd9644497d3d0985d090f.ctex"
+uid="uid://de8ug20r5tjws"
+path="res://.godot/imported/cetus.png-b226833762ef21fe563d2a131e96426e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/hydrus.png"
-dest_files=["res://.godot/imported/hydrus.png-d701cb629e4bd9644497d3d0985d090f.ctex"]
+source_file="res://Art/Constellations/cetus.png"
+dest_files=["res://.godot/imported/cetus.png-b226833762ef21fe563d2a131e96426e.ctex"]
 
 [params]
 

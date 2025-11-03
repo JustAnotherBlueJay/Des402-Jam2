@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq88swqtussqb"
-path="res://.godot/imported/volans.png-0c6bc2dd3e2b194375ab72ff03473beb.ctex"
+uid="uid://co35326bst7gd"
+path="res://.godot/imported/cat_no_arm (2).png-94b1b05725625f8953bf03f401977e34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/volans.png"
-dest_files=["res://.godot/imported/volans.png-0c6bc2dd3e2b194375ab72ff03473beb.ctex"]
+source_file="res://Art/AnimalArt/Cat/cat_no_arm (2).png"
+dest_files=["res://.godot/imported/cat_no_arm (2).png-94b1b05725625f8953bf03f401977e34.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djvqmeiut5fy2"
-path="res://.godot/imported/delphinus.png-3f27c219e0730d161c16e845ee189ab8.ctex"
+uid="uid://bv5iejvqpngtu"
+path="res://.godot/imported/hydrus.png-b454ab69f57a81817fbcdc1c4af40fc5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/delphinus.png"
-dest_files=["res://.godot/imported/delphinus.png-3f27c219e0730d161c16e845ee189ab8.ctex"]
+source_file="res://Art/Constellations/hydrus.png"
+dest_files=["res://.godot/imported/hydrus.png-b454ab69f57a81817fbcdc1c4af40fc5.ctex"]
 
 [params]
 

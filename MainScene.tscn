@@ -2,24 +2,24 @@
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
-[ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Objects/Constellation.tscn" id="2_8xkvn"]
+[ext_resource type="PackedScene" uid="uid://bt8qukpvhwv2t" path="res://Scenes/Constellations/Constellation.tscn" id="2_8xkvn"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="2_hbc2u"]
-[ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Hydrus.tscn" id="3_p5x2j"]
-[ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Assets/sky_stargaze_brighter.jpg" id="3_torvr"]
-[ext_resource type="PackedScene" uid="uid://cwd0a5hofomdr" path="res://Delphinus.tscn" id="4_3hf6u"]
-[ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Objects/player.tscn" id="4_8xkvn"]
-[ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Cetus.tscn" id="6_4mcbk"]
+[ext_resource type="PackedScene" uid="uid://cygktuf64mmid" path="res://Scenes/Constellations/Hydrus.tscn" id="3_p5x2j"]
+[ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Art/Background/sky_stargaze_brighter.jpg" id="3_torvr"]
+[ext_resource type="PackedScene" uid="uid://dwwtsrtrfqvq2" path="res://Scenes/Constellations/Delphinus.tscn" id="4_3hf6u"]
+[ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Misc/player.tscn" id="4_8xkvn"]
+[ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Scenes/Constellations/Cetus.tscn" id="6_4mcbk"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
-[ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Volans.tscn" id="7_3hf6u"]
+[ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Scenes/Constellations/Volans.tscn" id="7_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://f2b5xkc8wl3f" path="res://Art/Background/sky_now with PINK.png" id="7_yvb8b"]
 [ext_resource type="Texture2D" uid="uid://bxtxny5onl2q8" path="res://Art/Background/cleaned_ocean.png" id="10_p5x2j"]
 [ext_resource type="AudioStream" uid="uid://dnku7x0rmms4d" path="res://Audio/Music/tideMusic.ogg" id="11_p5x2j"]
-[ext_resource type="Texture2D" uid="uid://cg52xijmfl00s" path="res://Assets/boat.png" id="15_mctxq"]
-[ext_resource type="Texture2D" uid="uid://co35326bst7gd" path="res://Assets/cat_no_arm.png" id="15_x0cd2"]
-[ext_resource type="Texture2D" uid="uid://c8vkbyvefxj6s" path="res://Assets/cat_arm.png" id="16_3slyh"]
-[ext_resource type="Texture2D" uid="uid://d2sh0hsrfj7pb" path="res://Assets/crow_no_arm.png" id="16_8s4c3"]
+[ext_resource type="Texture2D" uid="uid://cg52xijmfl00s" path="res://Art/boat.png" id="15_mctxq"]
+[ext_resource type="Texture2D" uid="uid://co35326bst7gd" path="res://Art/AnimalArt/Cat/cat_no_arm (2).png" id="15_x0cd2"]
+[ext_resource type="Texture2D" uid="uid://c8vkbyvefxj6s" path="res://Art/AnimalArt/Cat/cat_arm (2).png" id="16_3slyh"]
+[ext_resource type="Texture2D" uid="uid://d2sh0hsrfj7pb" path="res://Art/AnimalArt/Crow/crow_no_arm.png" id="16_8s4c3"]
 [ext_resource type="Script" uid="uid://ckj5l47gyo4fr" path="res://Scripts/PointingArm.cs" id="17_xtmsi"]
-[ext_resource type="Texture2D" uid="uid://chv6k54px6ikx" path="res://Assets/crow_arm.png" id="18_xtmsi"]
+[ext_resource type="Texture2D" uid="uid://chv6k54px6ikx" path="res://Art/AnimalArt/Crow/crow_arm.png" id="18_xtmsi"]
 [ext_resource type="Script" uid="uid://x5u3nv1f04gg" path="res://Scripts/BoatRock.cs" id="21_anuui"]
 
 [sub_resource type="Environment" id="Environment_5crlr"]
@@ -84,11 +84,13 @@ position = Vector2(572.99994, 141.99998)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(572.99994, 141.99998)
 
-[node name="Delphinus" parent="GameManager" instance=ExtResource("4_3hf6u")]
+[node name="Delphinus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("4_3hf6u")]
 visible = false
+z_index = 1
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
+playerStartPositions = []
 
 [node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
 visible = false
@@ -96,11 +98,14 @@ z_index = 1
 position = Vector2(528, 212)
 scale = Vector2(0.02, 0.02)
 
-[node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
+[node name="Cetus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("6_4mcbk")]
 visible = false
-position = Vector2(432, 263.99994)
+z_index = 1
+position = Vector2(564, 236.99997)
+rotation = -0.45173487
 scale = Vector2(0.015, 0.015)
-TargetPosition = Vector2(432, 263.99994)
+TargetPosition = Vector2(564, 236.99997)
+playerStartPositions = []
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5crlr")
@@ -173,6 +178,7 @@ stream = ExtResource("11_p5x2j")
 autoplay = true
 
 [node name="Boat" type="Sprite2D" parent="."]
+self_modulate = Color(0.601223, 0.601223, 0.60122293, 1)
 z_index = 10
 material = SubResource("ShaderMaterial_mctxq")
 position = Vector2(503, 437)

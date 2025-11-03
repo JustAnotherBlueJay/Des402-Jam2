@@ -9,17 +9,17 @@ public partial class StarLine : Node2D
 	public bool isVisible = false;
 
 
-    public override void _Process(double delta)
-    {
-        if (Input.IsKeyPressed(Key.Space))
+	public override void _Process(double delta)
+	{
+		if (Input.IsKeyPressed(Key.Space))
 		{
 			GD.Print("Space Ppessed");
 
 			FadeIn();
 		}
-    }
+	}
 
-    public void HideLine()
+	public void HideLine()
 	{
 		isVisible = false;
 		
@@ -32,11 +32,8 @@ public partial class StarLine : Node2D
 	{
 		isVisible = true;
 
-		GD.Print("Showing Sprite, ", Name);
 		Visible = true;
 
-		GD.Print("Progress: ", mySprite.GetInstanceShaderParameter("progress"));
-		
 		FadeIn();
 		myStaticBody.SetCollisionLayerValue(2,true);
 		mySprite.Show();

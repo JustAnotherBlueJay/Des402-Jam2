@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://j3wni6xo6hw4"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_83g4i"]
-[ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Objects/StarPoint.tscn" id="2_hynlv"]
-[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Objects/StarLine.tscn" id="3_shpog"]
-[ext_resource type="Texture2D" uid="uid://de8ug20r5tjws" path="res://Assets/cetus.png" id="4_83g4i"]
+[ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="2_hynlv"]
+[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="3_shpog"]
+[ext_resource type="Texture2D" uid="uid://de8ug20r5tjws" path="res://Art/Constellations/cetus.png" id="4_83g4i"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_83g4i")
