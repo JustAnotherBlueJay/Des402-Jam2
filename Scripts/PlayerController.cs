@@ -21,6 +21,7 @@ public partial class PlayerController : CharacterBody2D
 	private GpuParticles2D starParticles;
 
     [Export] public AudioStream spinSound;
+    [Export] public AudioStream lockInSound;
     private AudioStreamPlayer soundPlayer;
     public override void _Ready()
 	{
@@ -117,7 +118,10 @@ public partial class PlayerController : CharacterBody2D
 	{
 		active = setActive;
 
-		Position = starPos;
+        soundPlayer.Stream = lockInSound;
+        soundPlayer.Play();
+
+        Position = starPos;
 
 		EmitStars();
 	}

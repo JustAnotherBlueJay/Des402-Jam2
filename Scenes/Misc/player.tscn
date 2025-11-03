@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cb487l35na6eo"]
+[gd_scene load_steps=13 format=3 uid="uid://cb487l35na6eo"]
 
 [ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://Scripts/PlayerController.cs" id="1_kvv6r"]
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="2_dfgsd"]
 [ext_resource type="AudioStream" uid="uid://brg1o670ovy6o" path="res://Audio/SFX/SFXtide7.wav" id="2_lynbd"]
+[ext_resource type="AudioStream" uid="uid://jvuxf2wa4k0n" path="res://Audio/SFX/SFXtide2.wav" id="3_i5dnr"]
 [ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="3_xbekk"]
 [ext_resource type="Texture2D" uid="uid://csotioum1qw5s" path="res://Art/PlayerSymbols/cat_symbol.png" id="4_dfgsd"]
 [ext_resource type="Texture2D" uid="uid://csch8sogfef1t" path="res://Art/Constellations/star.png" id="5_xbekk"]
@@ -44,6 +45,7 @@ alpha_curve = SubResource("CurveTexture_h6i5h")
 collision_mask = 2
 script = ExtResource("1_kvv6r")
 spinSound = ExtResource("2_lynbd")
+lockInSound = ExtResource("3_i5dnr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0hol4")
