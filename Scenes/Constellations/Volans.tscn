@@ -24,7 +24,7 @@ shader_parameter/smoothness = 0.0
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_njqr5")
 TargetPosition = Vector2(528, 212)
-creature = NodePath("SeaCreature")
+creature = NodePath("Node2D")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6")]
 lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine5")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star4")]
@@ -115,14 +115,25 @@ material = SubResource("ShaderMaterial_nftgn")
 instance_shader_parameters/progress = 1.0
 texture = ExtResource("7_makow")
 
-[node name="SeaCreature" type="Sprite2D" parent="."]
-z_index = 12
-position = Vector2(-1614, 0)
-scale = Vector2(17, 17)
-texture = ExtResource("8_4qttt")
-
 [node name="Player1StartPos" type="Node2D" parent="."]
 position = Vector2(-14287, -6098)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
 position = Vector2(14690, -3442)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5217, 2111)
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 13712.0
+offset_top = -11436.0
+offset_right = 26903.0
+offset_bottom = -5923.0
+theme_override_font_sizes/font_size = 3200
+text = "Volans"
+
+[node name="SeaCreature" type="Sprite2D" parent="Node2D"]
+z_index = 12
+position = Vector2(3603, -2111)
+scale = Vector2(17, 17)
+texture = ExtResource("8_4qttt")

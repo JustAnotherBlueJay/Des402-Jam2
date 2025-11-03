@@ -11,7 +11,7 @@ public partial class Constellation : Node2D
 	
 	
 	//rules for Jason (and me) on how to make more constellations
-	[Export] private Sprite2D creature;               // drag the current sea creature sprite here
+	[Export] private Node2D creature;               // drag the node holding sea creature and constellation name here
 	[Export] private StarPoint[] stars;                // drag all StarPoints here
 	[Export] private Node2D[] lines;                   // drag all Lines here
 	[Export] private StarPoint[] lineStarA;            // For each line, drag its "start" star
@@ -19,7 +19,7 @@ public partial class Constellation : Node2D
 
 	[Export] private Node2D[] playerStartPositions; 	//where the player will spawn when the constellation is loaded
 	
-	public Sprite2D SeaCreature => creature;
+	public Node2D SeaCreature => creature;
 
 	public override void _Ready()
 	{

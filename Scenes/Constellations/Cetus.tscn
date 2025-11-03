@@ -7,7 +7,7 @@
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_83g4i")
-creature = NodePath("SeaCreature")
+creature = NodePath("Node2D")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star9")]
 lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine5"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine8"), NodePath("StarLines/StarLine9"), NodePath("StarLines/StarLine10")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star9"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1")]
@@ -113,14 +113,26 @@ position = Vector2(-14378, -10691.001)
 rotation = -3.6651917
 scale = Vector2(4.2, 1)
 
-[node name="SeaCreature" type="Sprite2D" parent="."]
-z_index = 12
-position = Vector2(4072.0002, 1337)
-scale = Vector2(27, 27)
-texture = ExtResource("4_83g4i")
-
 [node name="Player1StartPos" type="Node2D" parent="."]
 position = Vector2(374, -6434)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
 position = Vector2(6770, -3179)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5217, 2111)
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 14790.999
+offset_top = -12826.999
+offset_right = 27982.0
+offset_bottom = -6796.999
+rotation = 0.43458697
+theme_override_font_sizes/font_size = 3500
+text = "Cetus"
+
+[node name="SeaCreature" type="Sprite2D" parent="Node2D"]
+z_index = 12
+position = Vector2(9289, -774)
+scale = Vector2(27, 27)
+texture = ExtResource("4_83g4i")

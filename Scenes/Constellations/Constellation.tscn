@@ -8,7 +8,7 @@
 [node name="Node2D2" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_l7ij0")
 TargetPosition = Vector2(746, 254)
-creature = NodePath("SeaCreature")
+creature = NodePath("Node2D")
 stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4")]
 lines = [NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star1")]
@@ -56,11 +56,21 @@ position = Vector2(2184.9998, 1862.9999)
 rotation = -4.450631
 scale = Vector2(2.2, 1)
 
-[node name="SeaCreature" type="Sprite2D" parent="."]
-visible = false
-z_index = 11
-position = Vector2(-2402, 619)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5217, 2111)
 rotation = -1.5707964
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 5174.0
+offset_top = 1995.0002
+offset_right = 9804.0
+offset_bottom = 4580.0
+theme_override_font_sizes/font_size = 1500
+text = "Patella"
+
+[node name="SeaCreature" type="Sprite2D" parent="Node2D"]
+z_index = 11
+position = Vector2(1491.9999, 2815)
 scale = Vector2(9, 9)
 texture = ExtResource("4_1uwjf")
 
@@ -69,14 +79,3 @@ position = Vector2(-2614, 2918)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
 position = Vector2(3042, -4526)
-
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-5217, 2111)
-rotation = -1.5707964
-
-[node name="Label" type="Label" parent="Node2D"]
-offset_left = -5.23
-offset_top = -0.35000023
-offset_right = 44.77
-offset_bottom = 27.65
-text = "Patella"
