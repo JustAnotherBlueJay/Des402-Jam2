@@ -104,7 +104,7 @@ z_index = 1
 position = Vector2(564, 236.99997)
 rotation = -0.45173487
 scale = Vector2(0.015, 0.015)
-TargetPosition = Vector2(432, 263.99994)
+TargetPosition = Vector2(564, 236.99997)
 playerStartPositions = []
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

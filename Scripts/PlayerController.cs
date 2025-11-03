@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 public partial class PlayerController : CharacterBody2D
 {
 	[Export] private int playerID;
+	
+	float spinDuration = 0.5f;
+	int spinRevolutions = 1;
 
 	float maxSpeed = 300.0f;
 
 	float acceleration = 10f;
 	float deceleration = 30f;
 	private bool active = true;
+	private bool isSpinning = false;
 
 	private GpuParticles2D starParticles;
 	public override void _Ready()
@@ -23,6 +27,28 @@ public partial class PlayerController : CharacterBody2D
 
 		starParticles = GetNode<GpuParticles2D>("./StarParticles");
 	}
+	
+	public override void _Input(InputEvent @craft)
+	{
+		if (Input.IsActionPressed("Spin") && !isSpinning)
+		{
+			doSpin();
+		}
+	}
+
+	private async void doSpin()
+	{
+		isSpinning = true;
+
+		float targetRotation = Rotation + (Mathf.Tau * spinRevolutions);
+
+		var tween = CreateTween();
+		tween.TweenProperty(this, "rotation", targetRotation, spinDuration);
+		
+
+	}
+	
+	
 	public override void _PhysicsProcess(double delta)
 	{
 
