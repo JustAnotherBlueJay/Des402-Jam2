@@ -9,16 +9,19 @@ public partial class PlayerController : CharacterBody2D
 	[Export] private int playerID;
 	
 	float spinDuration = 0.5f;
-	int spinRevolutions = 1;
+	int spinRevolutions = 1;   
+    float jumpTime = 0.25f;   
+    float skewAmount = 1;
 
-	float maxSpeed = 300.0f;
+    float maxSpeed = 300.0f;
 
 	float acceleration = 10f;
 	float deceleration = 30f;
 	private bool active = true;
 	private bool isSpinning = false;
+    private bool isJumping = false;
 
-	private GpuParticles2D starParticles;
+    private GpuParticles2D starParticles;
 
     //[Export] public AudioStream spinSound;
     //[Export] public AudioStream lockInSound;
@@ -42,7 +45,12 @@ public partial class PlayerController : CharacterBody2D
         {
 			doSpin();
 		}
-	}
+
+        if (((Input.IsActionPressed("player_1_jump") && playerID == 0) || (Input.IsActionPressed("player_2_jump") && playerID == 1)) && !isJumping)
+        {
+            doJump();
+        }
+    }
 
 	private async void doSpin()
 	{
@@ -62,9 +70,37 @@ public partial class PlayerController : CharacterBody2D
 		isSpinning = false;
 
 	}
-	
-	
-	public override void _PhysicsProcess(double delta)
+
+    public void doJump()
+    {
+
+        GetNode<AudioStreamPlayer>("JumpPlayer").Play();
+
+        float size = this.Transform.Scale.X;
+
+		float targetSize = size * 1.2f;
+			
+        var tween = CreateTween();
+
+        tween.TweenProperty(this, "scale", new Vector2(targetSize, targetSize), jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.Out);
+
+        tween.TweenProperty(this, "scale", new Vector2(targetSize, -targetSize), jumpTime);
+
+        // tween.TweenProperty(this, "skew", skewAmount, jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.Out);
+
+        // tween.TweenProperty(this, "rotation", skewAmount, jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.Out);
+
+        tween.TweenProperty(this, "scale", new Vector2(size, size), jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.In);
+
+        tween.TweenProperty(this, "scale", new Vector2(size, size), jumpTime);
+
+        // tween.TweenProperty(this, "skew", 0, jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.In);
+
+        // tween.TweenProperty(this, "rotation", 0, jumpTime).SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.In);
+    }
+
+
+    public override void _PhysicsProcess(double delta)
 	{
 
 		if (!active)
