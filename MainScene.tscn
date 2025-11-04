@@ -113,7 +113,7 @@ constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"),
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
 visible = false
-z_index = 1
+z_index = 10
 position = Vector2(516, 174.99998)
 rotation = 1.5707964
 scale = Vector2(0.05, 0.05)
@@ -121,7 +121,7 @@ TargetPosition = Vector2(516, 174.99998)
 
 [node name="Hydrus" parent="GameManager" instance=ExtResource("3_p5x2j")]
 visible = false
-z_index = 1
+z_index = 10
 position = Vector2(572.99994, 141.99998)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(572.99994, 141.99998)
@@ -138,13 +138,14 @@ pitch_scale = 0.5
 
 [node name="Delphinus" parent="GameManager" instance=ExtResource("4_3hf6u")]
 visible = false
-z_index = 1
+z_index = 10
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
 
 [node name="Dorado" parent="GameManager" instance=ExtResource("5_h86nx")]
 visible = false
+z_index = 10
 position = Vector2(533, 281.00003)
 rotation = 0.5235988
 scale = Vector2(0.035, 0.035)
@@ -152,7 +153,7 @@ TargetPosition = Vector2(533, 281.00003)
 
 [node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
 visible = false
-z_index = 1
+z_index = 10
 position = Vector2(528, 212)
 scale = Vector2(0.02, 0.02)
 
@@ -162,13 +163,14 @@ pitch_scale = 0.5
 
 [node name="Hippocampus" parent="GameManager" instance=ExtResource("25_7jkkr")]
 visible = false
+z_index = 10
 position = Vector2(337.99997, 186)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(337.99997, 186)
 
 [node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
 visible = false
-z_index = 1
+z_index = 10
 position = Vector2(564.00006, 212)
 rotation = -0.45173487
 scale = Vector2(0.018, 0.018)
@@ -264,10 +266,10 @@ position = Vector2(1028, 257)
 shape = SubResource("RectangleShape2D_hbc2u")
 
 [node name="Ocean" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 10
 material = SubResource("ShaderMaterial_5crlr")
-position = Vector2(518, 70)
-scale = Vector2(0.5675, 0.5675)
+position = Vector2(511.87503, 70.62496)
+scale = Vector2(0.57430553, 0.5681944)
 texture = ExtResource("10_p5x2j")
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -279,9 +281,9 @@ autoplay = true
 
 [node name="Boat" type="Sprite2D" parent="."]
 self_modulate = Color(0.601223, 0.601223, 0.60122293, 1)
-z_index = 10
+z_index = 11
 material = SubResource("ShaderMaterial_mctxq")
-position = Vector2(503, 437)
+position = Vector2(500.99997, 424)
 scale = Vector2(0.41058397, 0.41058397)
 texture = ExtResource("15_mctxq")
 script = ExtResource("21_anuui")
@@ -327,6 +329,7 @@ angleModifier = 30.0
 [node name="StarFields" type="Node2D" parent="."]
 
 [node name="StarField" parent="StarFields" instance=ExtResource("23_1ms6g")]
+z_index = 1
 starAcceleration = 0.01
 
 [node name="StarField2" parent="StarFields" instance=ExtResource("23_1ms6g")]
