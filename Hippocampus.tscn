@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=3 uid="uid://de86pcysl7o60"]
+
+[ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="1_6attn"]
+[ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_gra0t"]
+[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="2_gra0t"]
+[ext_resource type="Texture2D" uid="uid://cjaa1ewcyiomd" path="res://Art/Constellations/hippocampus.png" id="3_mqnvf"]
+[ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="4_4qf14"]
+
+[node name="Node2" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
+script = ExtResource("1_gra0t")
+creature = NodePath("Node2D")
+stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star8")]
+lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine5"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine8"), NodePath("StarLines/StarLine9")]
+lineStarA = [NodePath("StarPoints/Star5"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star7"), NodePath("StarPoints/Star6")]
+lineStarB = [NodePath("StarPoints/Star6"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star8"), NodePath("StarPoints/Star7")]
+playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
+
+[node name="StarPoints" type="Node2D" parent="."]
+
+[node name="Star1" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(9574, -7231)
+isComplete = true
+
+[node name="Star2" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(10616, 2340)
+isComplete = true
+
+[node name="Star3" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(5967, -1588)
+isTarget = true
+
+[node name="Star4" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(6774, 4286)
+isComplete = true
+
+[node name="Star5" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(-1707, 10194)
+isTarget = true
+
+[node name="Star6" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(-8996, 3693)
+isComplete = true
+
+[node name="Star7" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(-3240, 1855)
+isComplete = true
+
+[node name="Star8" parent="StarPoints" instance=ExtResource("1_6attn")]
+z_index = 1
+position = Vector2(0, 4286)
+isComplete = true
+
+[node name="StarLines" type="Node2D" parent="."]
+position = Vector2(5967, -1588)
+
+[node name="StarLine" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(-11457, 8787)
+rotation = 7.0517035
+scale = Vector2(8.5, 1)
+
+[node name="StarLine2" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(-3461, 8724)
+rotation = -3.8134837
+scale = Vector2(9, 1)
+
+[node name="StarLine3" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(2439, 1928.0005)
+rotation = 0.7898482
+scale = Vector2(4.8, 1)
+
+[node name="StarLine4" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(-3132.0002, 2815)
+rotation = -3.926991
+scale = Vector2(7.2, 1)
+
+[node name="StarLine5" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(4211.0005, -938)
+rotation = -1.6594293
+scale = Vector2(8, 1)
+
+[node name="StarLine6" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(1808, -2785)
+rotation = -1.0471976
+scale = Vector2(5.1, 1.275)
+
+[node name="StarLine7" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(350, 2946)
+rotation = 1.4732602
+scale = Vector2(4.3, 1)
+
+[node name="StarLine8" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(-7632, 4559.0005)
+rotation = -2.3870819
+scale = Vector2(2.5, 1)
+
+[node name="StarLine9" parent="StarLines" instance=ExtResource("2_gra0t")]
+position = Vector2(-12103, 4327)
+rotation = -3.403392
+scale = Vector2(4.6, 1)
+
+[node name="Player1StartPos" type="Node2D" parent="."]
+position = Vector2(20521, 2794)
+
+[node name="Player2StartPos" type="Node2D" parent="."]
+position = Vector2(-13710, -3788)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5217, 2111)
+rotation = -0.43458697
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 22300.678
+offset_top = -2127.3682
+offset_right = 41680.68
+offset_bottom = 3902.6318
+rotation = 0.43458697
+theme_override_font_sizes/font_size = 3500
+text = "Hippocampus"
+metadata/_edit_use_anchors_ = true
+
+[node name="SeaCreature" type="Sprite2D" parent="Node2D"]
+z_index = 12
+position = Vector2(8751.414, 3208.9497)
+rotation = 0.78365284
+scale = Vector2(20.000002, 20.000002)
+texture = ExtResource("3_mqnvf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4qf14")
+volume_db = -20.0
+pitch_scale = 0.5
+bus = &"SFX"
