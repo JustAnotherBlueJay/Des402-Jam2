@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://dplppcmj8ii2o"]
+
+[ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_64jqa"]
+[ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="1_oixva"]
+[ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="2_64jqa"]
+[ext_resource type="Texture2D" uid="uid://dyulsj6ycp56r" path="res://Art/Constellations/dorado.png" id="3_skg4s"]
+[ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="4_u62sj"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
+script = ExtResource("1_64jqa")
+creature = NodePath("Node2D")
+stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6")]
+lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine5"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7")]
+lineStarA = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star6")]
+lineStarB = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star3")]
+playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
+
+[node name="StarPoints" type="Node2D" parent="."]
+
+[node name="Star1" parent="StarPoints" instance=ExtResource("1_oixva")]
+z_index = 1
+position = Vector2(6351, -7254)
+isComplete = true
+
+[node name="Star2" parent="StarPoints" instance=ExtResource("1_oixva")]
+z_index = 1
+position = Vector2(2354, -3812)
+isTarget = true
+
+[node name="Star3" parent="StarPoints" instance=ExtResource("1_oixva")]
+z_index = 1
+position = Vector2(-5217, 3091)
+isComplete = true
+
+[node name="Star4" parent="StarPoints" instance=ExtResource("1_oixva")]
+z_index = 1
+position = Vector2(-5973, 6971)
+isComplete = true
+
+[node name="Star5" parent="StarPoints" instance=ExtResource("1_oixva")]
+z_index = 1
+position = Vector2(-2769, -2442)
+isComplete = true
+
+[node name="Star6" parent="StarPoints" instance=ExtResource("1_oixva")]
+z_index = 1
+position = Vector2(-9578, 4015)
+isTarget = true
+
+[node name="StarLines" type="Node2D" parent="."]
+position = Vector2(-2, 0)
+
+[node name="StarLine" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(4450.0005, -5413.0005)
+rotation = 2.4058642
+scale = Vector2(3.8, 1)
+
+[node name="StarLine2" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(-1429, -351.0001)
+rotation = -0.7066942
+scale = Vector2(8.8, 1)
+
+[node name="StarLine3" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(-320.99988, -3442)
+rotation = -0.2617994
+scale = Vector2(4, 1)
+
+[node name="StarLine4" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(-4155, 309)
+rotation = -1.1822332
+scale = Vector2(4.7, 1)
+
+[node name="StarLine5" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(-5537, 4996.9995)
+rotation = -1.3089969
+scale = Vector2(2.5, 1)
+
+[node name="StarLine6" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(-7892, 5620.0005)
+rotation = -2.4656143
+scale = Vector2(3.2, 1)
+
+[node name="StarLine7" parent="StarLines" instance=ExtResource("2_64jqa")]
+position = Vector2(-7403.0005, 3467.0005)
+rotation = -3.403392
+scale = Vector2(3, 1)
+
+[node name="Player1StartPos" type="Node2D" parent="."]
+position = Vector2(-8650, 0)
+
+[node name="Player2StartPos" type="Node2D" parent="."]
+position = Vector2(9029, -3246)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-5217, 2111)
+rotation = -0.5235988
+
+[node name="Label" type="Label" parent="Node2D"]
+offset_left = 7999.743
+offset_top = -7335.961
+offset_right = 21190.742
+offset_bottom = -1822.9609
+theme_override_font_sizes/font_size = 2800
+text = "Dorado"
+metadata/_edit_use_anchors_ = true
+
+[node name="SeaCreature" type="Sprite2D" parent="Node2D"]
+z_index = 12
+position = Vector2(4175.7896, -26.679565)
+rotation = 0.5235988
+scale = Vector2(17, 17)
+texture = ExtResource("3_skg4s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_u62sj")
