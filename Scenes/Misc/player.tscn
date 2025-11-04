@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb487l35na6eo"]
+[gd_scene load_steps=16 format=3 uid="uid://cb487l35na6eo"]
 
 [ext_resource type="Script" uid="uid://cwrdlh8mtnn87" path="res://Scripts/PlayerController.cs" id="1_kvv6r"]
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="2_dfgsd"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://csotioum1qw5s" path="res://Art/PlayerSymbols/cat_symbol.png" id="4_dfgsd"]
 [ext_resource type="Texture2D" uid="uid://csch8sogfef1t" path="res://Art/Constellations/star.png" id="5_xbekk"]
 [ext_resource type="AudioStream" uid="uid://dsvycvkum40r3" path="res://Audio/SFX/SFXtide6.wav" id="8_clqjs"]
+[ext_resource type="Script" uid="uid://dwkndwpmdp0le" path="res://Scripts/Trail.cs" id="9_1xt8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 29.017237
@@ -42,6 +43,10 @@ scale_max = 0.25
 color = Color(0.81262, 0.82, 0.59860003, 1)
 alpha_curve = SubResource("CurveTexture_h6i5h")
 
+[sub_resource type="Curve" id="Curve_1xt8k"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D" groups=["Players"]]
 collision_mask = 2
 script = ExtResource("1_kvv6r")
@@ -71,3 +76,13 @@ stream = ExtResource("3_i5dnr")
 
 [node name="JumpPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_clqjs")
+
+[node name="Trail" type="Line2D" parent="." node_paths=PackedStringArray("player")]
+top_level = true
+width = 20.0
+width_curve = SubResource("Curve_1xt8k")
+default_color = Color(0.28627452, 0.32156864, 0.49019608, 1)
+texture_mode = 2
+script = ExtResource("9_1xt8k")
+maxLength = 15
+player = NodePath("..")
