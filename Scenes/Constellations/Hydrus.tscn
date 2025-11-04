@@ -14,7 +14,7 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine4")]
 lineStarA = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5")]
-playerStartPositions = []
+playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
 
 [node name="StarPoints" type="Node2D" parent="."]
 
@@ -62,10 +62,10 @@ rotation = -2.9752471
 scale = Vector2(9.5, 1)
 
 [node name="Player1StartPos" type="Node2D" parent="."]
-position = Vector2(-8161.9995, -5912)
+position = Vector2(-12981, 0)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
-position = Vector2(6321, 8582)
+position = Vector2(10757, 0)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-5217, 2111)

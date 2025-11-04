@@ -71,10 +71,10 @@ rotation = -2.0943952
 scale = Vector2(10.467, 1)
 
 [node name="Player1StartPos" type="Node2D" parent="."]
-position = Vector2(374, -6434)
+position = Vector2(15141, -8613)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
-position = Vector2(6770, -3179)
+position = Vector2(-20721, 5944)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-5217, 2111)
