@@ -20,19 +20,19 @@ playerStartPositions = []
 
 [node name="Star1" parent="StarPoints" instance=ExtResource("2_o11bg")]
 position = Vector2(2669, 50)
-IsComplete = true
+isTarget = true
 
 [node name="Star2" parent="StarPoints" instance=ExtResource("2_o11bg")]
 position = Vector2(-2028, 379)
-IsTarget = true
+isComplete = true
 
 [node name="Star3" parent="StarPoints" instance=ExtResource("2_o11bg")]
 position = Vector2(1714, 3649)
-IsTarget = true
+isTarget = true
 
 [node name="Star4" parent="StarPoints" instance=ExtResource("2_o11bg")]
 position = Vector2(1875, -2807)
-IsComplete = true
+isComplete = true
 
 [node name="StarLines" type="Node2D" parent="."]
 position = Vector2(-2, 0)

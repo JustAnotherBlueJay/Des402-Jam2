@@ -14,30 +14,29 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine4")]
 lineStarA = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5")]
-fadeInSound = ExtResource("2_0kktu")
 playerStartPositions = []
 
 [node name="StarPoints" type="Node2D" parent="."]
 
 [node name="Star1" parent="StarPoints" instance=ExtResource("2_3o0u1")]
 position = Vector2(0, -5551)
-IsComplete = true
+isTarget = true
 
 [node name="Star2" parent="StarPoints" instance=ExtResource("2_3o0u1")]
 position = Vector2(-804, 1817)
-IsTarget = true
+isComplete = true
 
 [node name="Star3" parent="StarPoints" instance=ExtResource("2_3o0u1")]
 position = Vector2(-3561, 1817)
-IsComplete = true
+isComplete = true
 
 [node name="Star4" parent="StarPoints" instance=ExtResource("2_3o0u1")]
 position = Vector2(-6207, 9539)
-IsComplete = true
+isTarget = true
 
 [node name="Star5" parent="StarPoints" instance=ExtResource("2_3o0u1")]
 position = Vector2(4600, 11328)
-IsTarget = true
+isComplete = true
 
 [node name="StarLines" type="Node2D" parent="."]
 position = Vector2(-2, 0)

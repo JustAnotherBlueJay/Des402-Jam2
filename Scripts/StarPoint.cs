@@ -4,10 +4,12 @@ using System;
 
 public partial class StarPoint : Area2D
 {
-	[Export] public bool IsTarget = false; 
-	[Export] public bool IsComplete = false; 
-	[Export] public Color ActiveColor = new Color(1, 1, 0.8f); // glowing yellow
-	[Export] public Color InactiveColor = new Color(0.2f, 0.2f, 0.5f); // dim blue
+	[Export] public bool isTarget = false; 
+	[Export] public bool isComplete = false; 
+	[Export] public Color activeColor = new Color(1, 1, 0.8f); // glowing yellow
+	[Export] public Color inactiveColor = new Color(0.2f, 0.2f, 0.5f); // dim blue
+
+	private bool isResetTarget = false;
 	
 	 //[Export] public Godot.Collections.Array<NodePath> ConnectedStarPaths = new();
 
@@ -21,6 +23,11 @@ public partial class StarPoint : Area2D
 
 	public override void _Ready()
 	{
+		if (isTarget)
+		{
+			isResetTarget = true;
+		}
+
 		//GD.Print(Name, " connections: ", string.Join(", ", ConnectedStars));
 		sprite = GetNode<Sprite2D>("Sprite2D");
 		UpdateVisual();
@@ -34,10 +41,25 @@ public partial class StarPoint : Area2D
 
 		BodyEntered += OnBodyEntered;
 	}
-	
-	private void OnBodyEntered(Node2D body)
+
+    public void ResetStar()
+    {
+
+        GD.Print("me1! " + isResetTarget);
+
+        if (isResetTarget)
+        {
+			GD.Print("me2!");
+            isComplete = false;
+			isTarget = true;
+        }
+
+		UpdateVisual();
+    }
+
+    private void OnBodyEntered(Node2D body)
 	{
-		if (IsComplete || !IsTarget)
+		if (isComplete || !isTarget)
 			return;
 			
 			
@@ -47,7 +69,7 @@ public partial class StarPoint : Area2D
 			PlayerController pc = body as PlayerController;
 			pc.LockToStar(GlobalPosition, false);
 
-			IsComplete = true;
+			isComplete = true;
 			UpdateVisual();
 			EmitSignal(SignalName.StarCompleted);
 		}
@@ -56,6 +78,6 @@ public partial class StarPoint : Area2D
 	private void UpdateVisual()
 	{
 		if (sprite == null) return;
-		sprite.Modulate = IsComplete ? ActiveColor : InactiveColor;
+		sprite.Modulate = isComplete ? activeColor : inactiveColor;
 	}
 }

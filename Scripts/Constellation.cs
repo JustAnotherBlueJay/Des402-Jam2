@@ -69,7 +69,7 @@ public partial class Constellation : Node2D
 	{
 		foreach (var s in stars)
 		{
-			if (s.IsTarget && !s.IsComplete)
+			if (s.isTarget && !s.isComplete)
 				return false;
 		}
 		return true;
@@ -92,7 +92,7 @@ public partial class Constellation : Node2D
 				continue;
 
 			// Show line if both stars are complete
-			if (a.IsComplete && b.IsComplete)
+			if (a.isComplete && b.isComplete)
 			{
 				//try and see if the lines are StarLines, if they are show them that way
 				//if they are the old lines then show them that way
@@ -130,7 +130,25 @@ public partial class Constellation : Node2D
 		await ToSignal(tween, Tween.SignalName.Finished);
 	}
 
-	public Vector2 GetPlayerStartPosition(int playerID)
+
+    public void ResetConstellation()
+    {
+        foreach (var s in stars)
+        {
+            if (s == null) continue;
+            s.ResetStar(); 
+        }
+
+		UpdateLines();
+
+        // Hide creature again
+        //if (creature != null)
+           // creature.Modulate = new Color(1, 1, 1, 0);
+    }
+
+
+
+    public Vector2 GetPlayerStartPosition(int playerID)
 	{
 		return playerStartPositions[playerID].GlobalPosition;
 

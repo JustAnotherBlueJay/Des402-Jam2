@@ -20,47 +20,47 @@ playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")
 [node name="Star1" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(-10869, -10716)
-IsComplete = true
+isComplete = true
 
 [node name="Star2" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(-5223, -7274)
-IsTarget = true
+isTarget = true
 
 [node name="Star3" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(4072, 2567)
-IsTarget = true
+isTarget = true
 
 [node name="Star4" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(-5998, -13560)
-IsComplete = true
+isComplete = true
 
 [node name="Star5" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(-886, -876)
-IsComplete = true
+isComplete = true
 
 [node name="Star6" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(9574, 2567)
-IsComplete = true
+isComplete = true
 
 [node name="Star7" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(17843, 4779)
-IsComplete = true
+isComplete = true
 
 [node name="Star8" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(4072, 8221)
-IsComplete = true
+isComplete = true
 
 [node name="Star9" parent="StarPoints" instance=ExtResource("2_hynlv")]
 z_index = 1
 position = Vector2(13731, 9973)
-IsComplete = true
+isComplete = true
 
 [node name="StarLines" type="Node2D" parent="."]
 position = Vector2(5967, -1588)
@@ -124,10 +124,10 @@ position = Vector2(6770, -3179)
 position = Vector2(-5217, 2111)
 
 [node name="Label" type="Label" parent="Node2D"]
-offset_left = 14790.999
-offset_top = -12826.999
-offset_right = 27982.0
-offset_bottom = -6796.999
+offset_left = 13476.999
+offset_top = -10690.999
+offset_right = 26668.0
+offset_bottom = -4660.999
 rotation = 0.43458697
 theme_override_font_sizes/font_size = 3500
 text = "Cetus"

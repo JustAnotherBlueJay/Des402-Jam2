@@ -38,8 +38,10 @@ public partial class GameManager : Node2D
 
 	private async void ShowConstellation(int index)
 {
-	if (index < 0 || index >= constellations.Length) 
-		return;
+		if (index > constellations.Length -1)
+		{
+			index = 0;
+		}
 
 	var c = constellations[index];
 	GD.Print($"[GM] ShowConstellation({index})");
@@ -56,10 +58,11 @@ public partial class GameManager : Node2D
 	// Move to target position (for off-screen handling)
 	c.Position = c.TargetPosition;
 
-	// Fade in visuals
-	FadeConstellation(c, fadeIn: true);
+        c.ResetConstellation();
 
-	// Connect completion signal
+        FadeConstellation(c, fadeIn: true);
+
+	// connect up completion signal
 	c.Connect(Constellation.SignalName.ConstellationComplete,
 			  new Callable(this, nameof(OnConstellationFinished)),
 			  flags: (uint)ConnectFlags.OneShot);
@@ -98,7 +101,7 @@ public partial class GameManager : Node2D
 	if (currentIndex >= constellations.Length)
 	{
 		GD.Print("[GM] All constellations complete!");
-		return;
+		//return;
 	}
 
 	// fades in next constellation
@@ -140,6 +143,11 @@ public partial class GameManager : Node2D
 		}
 	}
 }
+
+
+
+
+
 
 	//get the start position of the player for the next constelation
 	static public Vector2 GetPlayerStartPosition(int playerID)

@@ -20,27 +20,27 @@ playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")
 [node name="Star1" parent="StarPoints" instance=ExtResource("1_4sdfi")]
 z_index = 1
 position = Vector2(-1614, -1729)
-IsTarget = true
+isTarget = true
 
 [node name="Star2" parent="StarPoints" instance=ExtResource("1_4sdfi")]
 z_index = 1
 position = Vector2(-4292, -7274)
-IsComplete = true
+isComplete = true
 
 [node name="Star3" parent="StarPoints" instance=ExtResource("1_4sdfi")]
 z_index = 1
 position = Vector2(3251, -5171)
-IsComplete = true
+isComplete = true
 
 [node name="Star4" parent="StarPoints" instance=ExtResource("1_4sdfi")]
 z_index = 1
 position = Vector2(11050, 9386)
-IsTarget = true
+isTarget = true
 
 [node name="Star5" parent="StarPoints" instance=ExtResource("1_4sdfi")]
 z_index = 1
 position = Vector2(5299, -942)
-IsComplete = true
+isComplete = true
 
 [node name="StarLines" type="Node2D" parent="."]
 position = Vector2(-2, 0)

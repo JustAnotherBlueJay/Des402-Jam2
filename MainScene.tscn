@@ -126,10 +126,10 @@ pitch_scale = 0.5
 [node name="Cetus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("6_4mcbk")]
 visible = false
 z_index = 1
-position = Vector2(564, 236.99997)
+position = Vector2(564.00006, 212)
 rotation = -0.45173487
-scale = Vector2(0.015, 0.015)
-TargetPosition = Vector2(564, 236.99997)
+scale = Vector2(0.018, 0.018)
+TargetPosition = Vector2(564.00006, 212)
 playerStartPositions = []
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -30,7 +30,6 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine6"), NodePath("StarLines/StarLine7"), NodePath("StarLines/StarLine4"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine5")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star4")]
 lineStarB = [NodePath("StarPoints/Star3"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star5"), NodePath("StarPoints/Star6"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star5")]
-fadeInSound = ExtResource("2_1765d")
 playerStartPositions = []
 
 [node name="StarPoints" type="Node2D" parent="."]
@@ -38,32 +37,32 @@ playerStartPositions = []
 [node name="Star1" parent="StarPoints" instance=ExtResource("2_g8r76")]
 z_index = 1
 position = Vector2(-11610, -2656)
-IsComplete = true
+isComplete = true
 
 [node name="Star2" parent="StarPoints" instance=ExtResource("2_g8r76")]
 z_index = 1
 position = Vector2(-4292, -7274)
-IsComplete = true
+isComplete = true
 
 [node name="Star3" parent="StarPoints" instance=ExtResource("2_g8r76")]
 z_index = 1
 position = Vector2(-819, 0)
-IsTarget = true
+isTarget = true
 
 [node name="Star4" parent="StarPoints" instance=ExtResource("2_g8r76")]
 z_index = 1
 position = Vector2(6608, 4745)
-IsComplete = true
+isComplete = true
 
 [node name="Star5" parent="StarPoints" instance=ExtResource("2_g8r76")]
 z_index = 1
 position = Vector2(11172, 0)
-IsComplete = true
+isComplete = true
 
 [node name="Star6" parent="StarPoints" instance=ExtResource("2_g8r76")]
 z_index = 1
 position = Vector2(-10878, 2500)
-IsTarget = true
+isTarget = true
 
 [node name="StarLines" type="Node2D" parent="."]
 position = Vector2(-2, 0)
