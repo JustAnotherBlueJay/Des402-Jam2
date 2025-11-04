@@ -87,7 +87,6 @@ script = ExtResource("1_hbc2u")
 constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Volans"), NodePath("Cetus")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
-visible = false
 z_index = 1
 position = Vector2(516, 174.99998)
 rotation = 1.5707964
