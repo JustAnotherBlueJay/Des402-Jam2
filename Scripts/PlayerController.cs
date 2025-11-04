@@ -8,8 +8,15 @@ public partial class PlayerController : CharacterBody2D
 {
 	[Export] private int playerID;
 	[Export] Trail trail;
-	
-	float spinDuration = 0.5f;
+
+    [Export] private float idleThreshold = 15f; // seconds before hint appears
+    private float idleTimer = 0f;
+
+    [Export] private NodePath JoystickHintPath;
+    private AnimatedSprite2D joystickHint;
+    private Vector2 lastInput = Vector2.Zero;
+
+    float spinDuration = 0.5f;
 	int spinRevolutions = 1;   
     float jumpTime = 0.25f;   
     float skewAmount = 1;
@@ -32,6 +39,9 @@ public partial class PlayerController : CharacterBody2D
     public override void _Ready()
 	{
         defaultSize = this.Transform.Scale.X;
+
+        joystickHint = GetNode<AnimatedSprite2D>(JoystickHintPath);
+        joystickHint.Visible = false;
 
         // soundPlayer = new AudioStreamPlayer();
         //AddChild(soundPlayer);
@@ -121,8 +131,31 @@ public partial class PlayerController : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 
 		Vector2 direction = GetInputDirection();
+        bool moving = direction != Vector2.Zero;
 
-		if (direction != Vector2.Zero)
+
+
+        if (moving)
+        {
+            idleTimer = 0f;
+            if (joystickHint.Visible)
+                HideJoystickHint();
+        }
+        else
+        {
+			//GD.Print("not moving " + idleTimer);
+            idleTimer += (float)delta;
+			if (idleTimer >= idleThreshold && !joystickHint.Visible)
+			{
+				GD.Print("we're in");
+				ShowJoystickHint();
+				idleTimer = 0f;
+			}
+        }
+
+
+
+        if (moving)
 		{
 			//velocity moves towards Direction * maxSpeed by the amount of acceleration  
 			Velocity = Velocity.MoveToward(direction * maxSpeed, acceleration);
@@ -153,7 +186,17 @@ public partial class PlayerController : CharacterBody2D
 	}
 
 
-    
+    private void ShowJoystickHint()
+    {
+        joystickHint.Visible = true;
+        joystickHint.Play("idle");
+    }
+
+    private void HideJoystickHint()
+    {
+        joystickHint.Visible = false;
+        joystickHint.Stop();
+    }
 
 
     public void LockToStar(Vector2 starPos, bool setActive)

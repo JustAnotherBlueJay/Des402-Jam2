@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=41 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -25,6 +25,9 @@
 [ext_resource type="Script" uid="uid://x5u3nv1f04gg" path="res://Scripts/BoatRock.cs" id="21_anuui"]
 [ext_resource type="PackedScene" uid="uid://dxgs4k4hirsyd" path="res://Scenes/Misc/StarField.tscn" id="23_1ms6g"]
 [ext_resource type="PackedScene" uid="uid://de86pcysl7o60" path="res://Hippocampus.tscn" id="25_7jkkr"]
+[ext_resource type="Texture2D" uid="uid://blcrhf42q6qxo" path="res://Art/UI/joystick_straight.png" id="26_v3bin"]
+[ext_resource type="Texture2D" uid="uid://blcttca274ik3" path="res://Art/UI/joystick_left.png" id="27_6dw4c"]
+[ext_resource type="Texture2D" uid="uid://dx67168ovbdka" path="res://Art/UI/joystick_right.png" id="28_cxdnd"]
 
 [sub_resource type="Environment" id="Environment_5crlr"]
 background_mode = 3
@@ -82,7 +85,27 @@ size = Vector2(315, 405)
 use_colors = true
 mesh = SubResource("QuadMesh_g4d1k")
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ro037"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_v3bin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6dw4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_v3bin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_cxdnd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Node2D2" type="Node2D"]
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
 script = ExtResource("1_hbc2u")
@@ -176,8 +199,9 @@ flip_v = true
 
 [node name="Player" parent="." instance=ExtResource("4_8xkvn")]
 z_index = 5
-position = Vector2(145, 111)
+position = Vector2(857, 100)
 scale = Vector2(0.5, 0.5)
+JoystickHintPath = NodePath("../CanvasLayer/AnimatedSprite2D")
 
 [node name="SpinPlayer" parent="Player" index="3"]
 volume_db = -23.0
@@ -195,9 +219,10 @@ gradient = SubResource("Gradient_h86nx")
 
 [node name="Player2" parent="." instance=ExtResource("4_8xkvn")]
 z_index = 5
-position = Vector2(275, 87)
+position = Vector2(179, 111)
 scale = Vector2(0.4, 0.4)
 playerID = 1
+JoystickHintPath = NodePath("../CanvasLayer/AnimatedSprite2D")
 
 [node name="Sprite2D" parent="Player2" index="1"]
 texture = ExtResource("6_5crlr")
@@ -313,6 +338,24 @@ starSpeed = 1.0
 
 [node name="MultiMeshInstance2D" parent="StarFields/StarField2" index="0"]
 multimesh = SubResource("MultiMesh_1ms6g")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(502, 254)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_ro037")
+animation = &"idle"
+frame = 2
+frame_progress = 0.2584932
+
+[node name="Label" type="Label" parent="CanvasLayer/AnimatedSprite2D"]
+offset_left = -204.99997
+offset_top = -233.74998
+offset_right = 177.00003
+offset_bottom = -146.74998
+theme_override_font_sizes/font_size = 50
+text = "Joystick to move"
 
 [editable path="GameManager/Hydrus"]
 [editable path="GameManager/Volans"]
