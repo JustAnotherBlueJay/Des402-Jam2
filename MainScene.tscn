@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=35 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -37,6 +37,14 @@ shader_parameter/scale = Vector2(1, 1)
 shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
+
+[sub_resource type="Gradient" id="Gradient_h86nx"]
+offsets = PackedFloat32Array(0, 0.34848484)
+colors = PackedColorArray(0, 0, 0, 0, 0.5175286, 0.5624239, 0.751189, 1)
+
+[sub_resource type="Gradient" id="Gradient_1ms6g"]
+offsets = PackedFloat32Array(0, 0.5984849, 1)
+colors = PackedColorArray(0.28627452, 0.32156864, 0.49019608, 0, 0.4778956, 0.37499994, 0.763911, 0.8030303, 0.524897, 0.38810575, 0.83104867, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5crlr"]
 size = Vector2(1050, 20)
@@ -163,6 +171,9 @@ volume_db = -5.0
 volume_db = -5.0
 pitch_scale = 1.5
 
+[node name="Trail" parent="Player" index="6"]
+gradient = SubResource("Gradient_h86nx")
+
 [node name="Player2" parent="." instance=ExtResource("4_8xkvn")]
 z_index = 5
 position = Vector2(275, 87)
@@ -183,6 +194,9 @@ pitch_scale = 1.3
 [node name="JumpPlayer" parent="Player2" index="5"]
 volume_db = -10.0
 pitch_scale = 2.0
+
+[node name="Trail" parent="Player2" index="6"]
+gradient = SubResource("Gradient_1ms6g")
 
 [node name="OuterWalls" type="Node2D" parent="."]
 
