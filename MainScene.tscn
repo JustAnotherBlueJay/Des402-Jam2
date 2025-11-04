@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=36 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Art/Background/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://dwwtsrtrfqvq2" path="res://Scenes/Constellations/Delphinus.tscn" id="4_3hf6u"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Misc/player.tscn" id="4_8xkvn"]
+[ext_resource type="PackedScene" uid="uid://dplppcmj8ii2o" path="res://Scenes/Constellations/Dorado.tscn" id="5_h86nx"]
 [ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Scenes/Constellations/Cetus.tscn" id="6_4mcbk"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Scenes/Constellations/Volans.tscn" id="7_3hf6u"]
@@ -84,9 +85,10 @@ mesh = SubResource("QuadMesh_g4d1k")
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
 script = ExtResource("1_hbc2u")
-constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Volans"), NodePath("Cetus")]
+constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Dorado"), NodePath("Volans"), NodePath("Cetus")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
+visible = false
 z_index = 1
 position = Vector2(516, 174.99998)
 rotation = 1.5707964
@@ -116,6 +118,12 @@ z_index = 1
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
+
+[node name="Dorado" parent="GameManager" instance=ExtResource("5_h86nx")]
+position = Vector2(533, 281.00003)
+rotation = 0.5235988
+scale = Vector2(0.035, 0.035)
+TargetPosition = Vector2(533, 281.00003)
 
 [node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
 visible = false
