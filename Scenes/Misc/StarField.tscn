@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxgs4k4hirsyd"]
+
+[ext_resource type="Script" uid="uid://dq14ju4sfcfev" path="res://Scripts/StarField.cs" id="1_g4d1k"]
+[ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="2_hkyod"]
+[ext_resource type="Texture2D" uid="uid://cmp8pa4vm5f8n" path="res://Scripts/Shaders/Squiggle Vision/Noise.jpg" id="3_0s46w"]
+[ext_resource type="Texture2D" uid="uid://csch8sogfef1t" path="res://Art/Constellations/star.png" id="4_evarp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ms6g"]
+shader = ExtResource("2_hkyod")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+shader_parameter/noise = ExtResource("3_0s46w")
+
+[sub_resource type="QuadMesh" id="QuadMesh_g4d1k"]
+size = Vector2(315, 405)
+
+[sub_resource type="MultiMesh" id="MultiMesh_hkyod"]
+use_colors = true
+mesh = SubResource("QuadMesh_g4d1k")
+
+[node name="StarField" type="Node2D"]
+script = ExtResource("1_g4d1k")
+instanceCount = 20
+starColorModulate = Color(0.641934, 0.64193404, 0.64193386, 0.7490196)
+minimumStarScale = 0.2
+maximumStarScale = 0.25
+
+[node name="MultiMeshInstance2D" type="MultiMeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_1ms6g")
+position = Vector2(512, 256)
+multimesh = SubResource("MultiMesh_hkyod")
+texture = ExtResource("4_evarp")

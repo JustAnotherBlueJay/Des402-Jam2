@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=33 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" uid="uid://ckj5l47gyo4fr" path="res://Scripts/PointingArm.cs" id="17_xtmsi"]
 [ext_resource type="Texture2D" uid="uid://chv6k54px6ikx" path="res://Art/AnimalArt/Crow/crow_arm.png" id="18_xtmsi"]
 [ext_resource type="Script" uid="uid://x5u3nv1f04gg" path="res://Scripts/BoatRock.cs" id="21_anuui"]
+[ext_resource type="PackedScene" uid="uid://dxgs4k4hirsyd" path="res://Scenes/Misc/StarField.tscn" id="23_1ms6g"]
 
 [sub_resource type="Environment" id="Environment_5crlr"]
 background_mode = 3
@@ -64,6 +65,13 @@ shader_parameter/strength = 1.0
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
 
+[sub_resource type="QuadMesh" id="QuadMesh_g4d1k"]
+size = Vector2(315, 405)
+
+[sub_resource type="MultiMesh" id="MultiMesh_1ms6g"]
+use_colors = true
+mesh = SubResource("QuadMesh_g4d1k")
+
 [node name="Node2D" type="Node2D"]
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
@@ -88,7 +96,6 @@ TargetPosition = Vector2(572.99994, 141.99998)
 [node name="AudioStreamPlayer" parent="GameManager/Hydrus" index="5"]
 volume_db = -20.0
 pitch_scale = 0.5
-bus = &"SFX"
 
 [node name="Delphinus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("4_3hf6u")]
 visible = false
@@ -107,7 +114,6 @@ scale = Vector2(0.02, 0.02)
 [node name="AudioStreamPlayer" parent="GameManager/Volans" index="5"]
 volume_db = -20.0
 pitch_scale = 0.5
-bus = &"SFX"
 
 [node name="Cetus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("6_4mcbk")]
 visible = false
@@ -122,6 +128,7 @@ playerStartPositions = []
 environment = SubResource("Environment_5crlr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
 material = SubResource("ShaderMaterial_q6r6c")
 offset_left = -1.0
 offset_top = -4.0
@@ -147,17 +154,14 @@ scale = Vector2(0.5, 0.5)
 
 [node name="SpinPlayer" parent="Player" index="3"]
 volume_db = -23.0
-bus = &"SFX"
 
 [node name="LockInPlayer" parent="Player" index="4"]
 stream = ExtResource("12_8qg48")
 volume_db = -5.0
-bus = &"SFX"
 
 [node name="JumpPlayer" parent="Player" index="5"]
 volume_db = -5.0
 pitch_scale = 1.5
-bus = &"SFX"
 
 [node name="Player2" parent="." instance=ExtResource("4_8xkvn")]
 z_index = 5
@@ -171,17 +175,14 @@ texture = ExtResource("6_5crlr")
 [node name="SpinPlayer" parent="Player2" index="3"]
 volume_db = -23.0
 pitch_scale = 1.5
-bus = &"SFX"
 
 [node name="LockInPlayer" parent="Player2" index="4"]
 stream = ExtResource("12_8qg48")
 pitch_scale = 1.3
-bus = &"SFX"
 
 [node name="JumpPlayer" parent="Player2" index="5"]
 volume_db = -10.0
 pitch_scale = 2.0
-bus = &"SFX"
 
 [node name="OuterWalls" type="Node2D" parent="."]
 
@@ -205,8 +206,9 @@ position = Vector2(1028, 257)
 shape = SubResource("RectangleShape2D_hbc2u")
 
 [node name="Ocean" type="Sprite2D" parent="."]
+z_index = 1
 material = SubResource("ShaderMaterial_5crlr")
-position = Vector2(510, 70)
+position = Vector2(518, 70)
 scale = Vector2(0.5675, 0.5675)
 texture = ExtResource("10_p5x2j")
 
@@ -264,7 +266,23 @@ target = NodePath("../../../Player2")
 maxAngle = 30.0
 angleModifier = 30.0
 
+[node name="StarFields" type="Node2D" parent="."]
+
+[node name="StarField" parent="StarFields" instance=ExtResource("23_1ms6g")]
+starAcceleration = 0.01
+
+[node name="StarField2" parent="StarFields" instance=ExtResource("23_1ms6g")]
+instanceCount = 50
+starColorModulate = Color(0.21568628, 0.21568628, 0.21568628, 0.7490196)
+minimumStarScale = 0.1
+maximumStarScale = 0.2
+starSpeed = 1.0
+
+[node name="MultiMeshInstance2D" parent="StarFields/StarField2" index="0"]
+multimesh = SubResource("MultiMesh_1ms6g")
+
 [editable path="GameManager/Hydrus"]
 [editable path="GameManager/Volans"]
 [editable path="Player"]
 [editable path="Player2"]
+[editable path="StarFields/StarField2"]
