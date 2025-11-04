@@ -62,18 +62,27 @@ position = Vector2(5967, -1588)
 
 [node name="StarLine" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(-11457, 8787)
-rotation = 7.0517035
+rotation = 3.9095376
 scale = Vector2(8.5, 1)
+
+[node name="CollisionShape2D" parent="StarLines/StarLine/StaticBody2D" index="0"]
+one_way_collision = true
 
 [node name="StarLine2" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(-3461, 8724)
 rotation = -3.8134837
 scale = Vector2(9, 1)
 
+[node name="CollisionShape2D" parent="StarLines/StarLine2/StaticBody2D" index="0"]
+one_way_collision = true
+
 [node name="StarLine3" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(2439, 1928.0005)
-rotation = 0.7898482
+rotation = 3.932227
 scale = Vector2(4.8, 1)
+
+[node name="CollisionShape2D" parent="StarLines/StarLine3/StaticBody2D" index="0"]
+one_way_collision = true
 
 [node name="StarLine4" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(-3132.0002, 2815)
@@ -89,6 +98,9 @@ scale = Vector2(8, 1)
 position = Vector2(1808, -2785)
 rotation = -1.0471976
 scale = Vector2(5.1, 1.275)
+
+[node name="CollisionShape2D" parent="StarLines/StarLine6/StaticBody2D" index="0"]
+one_way_collision = true
 
 [node name="StarLine7" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(350, 2946)
@@ -137,3 +149,8 @@ stream = ExtResource("4_4qf14")
 volume_db = -20.0
 pitch_scale = 0.5
 bus = &"SFX"
+
+[editable path="StarLines/StarLine"]
+[editable path="StarLines/StarLine2"]
+[editable path="StarLines/StarLine3"]
+[editable path="StarLines/StarLine6"]

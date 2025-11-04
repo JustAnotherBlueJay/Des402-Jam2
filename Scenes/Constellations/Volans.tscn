@@ -56,10 +56,16 @@ position = Vector2(-2505.0002, -3651.0002)
 rotation = 1.1306655
 scale = Vector2(6.770299, 0.99999994)
 
+[node name="CollisionShape2D" parent="StarLines/StarLine/StaticBody2D" index="0"]
+one_way_collision = true
+
 [node name="StarLine2" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(-6313, -1292)
-rotation = 0.23302929
+rotation = 3.3754668
 scale = Vector2(9.804736, 0.99999994)
+
+[node name="CollisionShape2D" parent="StarLines/StarLine2/StaticBody2D" index="0"]
+one_way_collision = true
 
 [node name="StarLine3" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(-8001.001, -5071)
@@ -81,10 +87,16 @@ position = Vector2(2961, 2406.0002)
 rotation = -2.6015587
 scale = Vector2(7.508522, 0.99999994)
 
+[node name="CollisionShape2D" parent="StarLines/StarLine6/StaticBody2D" index="0"]
+one_way_collision = true
+
 [node name="StarLine7" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(5147, -57)
-rotation = -3.149316
+rotation = -0.006981317
 scale = Vector2(10.593378, 0.99999994)
+
+[node name="CollisionShape2D" parent="StarLines/StarLine7/StaticBody2D" index="0"]
+one_way_collision = true
 
 [node name="Player1StartPos" type="Node2D" parent="."]
 position = Vector2(-14287, -6098)
@@ -111,3 +123,8 @@ texture = ExtResource("8_4qttt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_1765d")
+
+[editable path="StarLines/StarLine"]
+[editable path="StarLines/StarLine2"]
+[editable path="StarLines/StarLine6"]
+[editable path="StarLines/StarLine7"]
