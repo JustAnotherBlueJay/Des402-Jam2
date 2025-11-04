@@ -101,17 +101,22 @@ position = Vector2(572.99994, 141.99998)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(572.99994, 141.99998)
 
+[node name="Player1StartPos" parent="GameManager/Hydrus" index="2"]
+position = Vector2(-9596, -2439)
+
+[node name="Player2StartPos" parent="GameManager/Hydrus" index="3"]
+position = Vector2(5629, 5825)
+
 [node name="AudioStreamPlayer" parent="GameManager/Hydrus" index="5"]
 volume_db = -20.0
 pitch_scale = 0.5
 
-[node name="Delphinus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("4_3hf6u")]
+[node name="Delphinus" parent="GameManager" instance=ExtResource("4_3hf6u")]
 visible = false
 z_index = 1
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
-playerStartPositions = []
 
 [node name="Volans" parent="GameManager" instance=ExtResource("7_3hf6u")]
 visible = false
@@ -123,14 +128,13 @@ scale = Vector2(0.02, 0.02)
 volume_db = -20.0
 pitch_scale = 0.5
 
-[node name="Cetus" parent="GameManager" node_paths=PackedStringArray("playerStartPositions") instance=ExtResource("6_4mcbk")]
+[node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
 visible = false
 z_index = 1
 position = Vector2(564.00006, 212)
 rotation = -0.45173487
 scale = Vector2(0.018, 0.018)
 TargetPosition = Vector2(564.00006, 212)
-playerStartPositions = []
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5crlr")

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public partial class PlayerController : CharacterBody2D
 {
 	[Export] private int playerID;
+	[Export] Trail trail;
 	
 	float spinDuration = 0.5f;
 	int spinRevolutions = 1;   
@@ -168,18 +169,22 @@ public partial class PlayerController : CharacterBody2D
 
 	public async void OnConstellationCompleted()
 	{
-		//when a constelation is completed fade the player out then move them to the start position for the next constelation
+		
+		//when a constelation is completed fade out the player and hide its trail, then move it to the new start position
 		await FadeOut();
+		trail.HideTrail();
 
-		//Update positions
 		Position = GameManager.GetPlayerStartPosition(playerID);
+
 
 	}
 
 	public async void OnNewConstellationLoaded()
 	{
+
 		//when a new constelation loads in show the player again and set them active
 		await FadeIn();
+		trail.ShowTrail();
 
 		active = true;
 	}
