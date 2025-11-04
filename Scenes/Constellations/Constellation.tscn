@@ -14,7 +14,7 @@ stars = [NodePath("StarPoints/Star1"), NodePath("StarPoints/Star2"), NodePath("S
 lines = [NodePath("StarLines/StarLine2"), NodePath("StarLines/StarLine"), NodePath("StarLines/StarLine3"), NodePath("StarLines/StarLine4")]
 lineStarA = [NodePath("StarPoints/Star2"), NodePath("StarPoints/Star2"), NodePath("StarPoints/Star1"), NodePath("StarPoints/Star1")]
 lineStarB = [NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3"), NodePath("StarPoints/Star4"), NodePath("StarPoints/Star3")]
-playerStartPositions = []
+playerStartPositions = [NodePath("Player1StartPos"), NodePath("Player2StartPos")]
 
 [node name="StarPoints" type="Node2D" parent="."]
 
