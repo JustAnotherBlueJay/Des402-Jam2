@@ -153,12 +153,17 @@ public partial class GameManager : Node2D
 	static public Vector2 GetPlayerStartPosition(int playerID)
 	{
 		//the constelation we are transitioning to
-		Constellation currentConstellation = instance.constellations[instance.currentIndex + 1]; 
+		Constellation currentConstellation = instance.constellations[instance.currentIndex + 1];
 
 		//get the position of the player spawn point
 		Vector2 playerStartPos = currentConstellation.GetPlayerStartPosition(playerID);
-		//add 200 cause the constellations get moved off screen
-		playerStartPos.Y += 2000;
+
+		if (playerStartPos.Y < 0)
+		{
+			//add 200 cause the constellations get moved off screen
+			playerStartPos.Y += 2000;
+
+		}
 		
 		return playerStartPos;
 	}

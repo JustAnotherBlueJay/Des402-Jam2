@@ -47,9 +47,10 @@ alpha_curve = SubResource("CurveTexture_h6i5h")
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Player" type="CharacterBody2D" groups=["Players"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("trail") groups=["Players"]]
 collision_mask = 2
 script = ExtResource("1_kvv6r")
+trail = NodePath("Trail")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_0hol4")
