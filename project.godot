@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="DES402-Jam2"
+config/version="1.0"
 run/main_scene="uid://ck0ku6f1k2nem"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
-config/icon="res://Art/PlayerSymbols/icon.svg"
 
 [display]
 
