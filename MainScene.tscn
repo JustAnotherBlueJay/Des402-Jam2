@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=37 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://chv6k54px6ikx" path="res://Art/AnimalArt/Crow/crow_arm.png" id="18_xtmsi"]
 [ext_resource type="Script" uid="uid://x5u3nv1f04gg" path="res://Scripts/BoatRock.cs" id="21_anuui"]
 [ext_resource type="PackedScene" uid="uid://dxgs4k4hirsyd" path="res://Scenes/Misc/StarField.tscn" id="23_1ms6g"]
+[ext_resource type="PackedScene" uid="uid://de86pcysl7o60" path="res://Hippocampus.tscn" id="25_7jkkr"]
 
 [sub_resource type="Environment" id="Environment_5crlr"]
 background_mode = 3
@@ -85,7 +86,7 @@ mesh = SubResource("QuadMesh_g4d1k")
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
 script = ExtResource("1_hbc2u")
-constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Dorado"), NodePath("Volans"), NodePath("Cetus")]
+constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Dorado"), NodePath("Volans"), NodePath("Hippocampus"), NodePath("Cetus")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
 visible = false
@@ -120,6 +121,7 @@ scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
 
 [node name="Dorado" parent="GameManager" instance=ExtResource("5_h86nx")]
+visible = false
 position = Vector2(533, 281.00003)
 rotation = 0.5235988
 scale = Vector2(0.035, 0.035)
@@ -134,6 +136,12 @@ scale = Vector2(0.02, 0.02)
 [node name="AudioStreamPlayer" parent="GameManager/Volans" index="5"]
 volume_db = -20.0
 pitch_scale = 0.5
+
+[node name="Hippocampus" parent="GameManager" instance=ExtResource("25_7jkkr")]
+visible = false
+position = Vector2(337.99997, 186)
+scale = Vector2(0.02, 0.02)
+TargetPosition = Vector2(337.99997, 186)
 
 [node name="Cetus" parent="GameManager" instance=ExtResource("6_4mcbk")]
 visible = false
