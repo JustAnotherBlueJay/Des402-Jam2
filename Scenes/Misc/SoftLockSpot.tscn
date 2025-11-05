@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://2gsqfad3serd"]
+
+[ext_resource type="Script" uid="uid://rr7ossggavq1" path="res://Scripts/SoftlockSpot.cs" id="1_dh2fn"]
+
+[node name="SoftlockSpot" type="Area2D" node_paths=PackedStringArray("starlines")]
+script = ExtResource("1_dh2fn")
+starlines = []
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

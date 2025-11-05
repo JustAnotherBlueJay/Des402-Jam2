@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://de86pcysl7o60"]
+[gd_scene load_steps=7 format=3 uid="uid://de86pcysl7o60"]
 
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="1_6attn"]
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_gra0t"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="2_gra0t"]
 [ext_resource type="Texture2D" uid="uid://cjaa1ewcyiomd" path="res://Art/Constellations/hippocampus.png" id="3_mqnvf"]
 [ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="4_4qf14"]
+[ext_resource type="PackedScene" uid="uid://2gsqfad3serd" path="res://Scenes/Misc/SoftLockSpot.tscn" id="6_mqnvf"]
 
 [node name="Node2" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_gra0t")
@@ -86,12 +87,12 @@ one_way_collision = true
 
 [node name="StarLine4" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(-3132.0002, 2815)
-rotation = -3.926991
+rotation = -0.7853982
 scale = Vector2(7.2, 1)
 
 [node name="StarLine5" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(4211.0005, -938)
-rotation = -1.6594293
+rotation = 1.4817846
 scale = Vector2(8, 1)
 
 [node name="StarLine6" parent="StarLines" instance=ExtResource("2_gra0t")]
@@ -109,12 +110,12 @@ scale = Vector2(4.3, 1)
 
 [node name="StarLine8" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(-7632, 4559.0005)
-rotation = -2.3870819
+rotation = 0.75398225
 scale = Vector2(2.5, 1)
 
 [node name="StarLine9" parent="StarLines" instance=ExtResource("2_gra0t")]
 position = Vector2(-12103, 4327)
-rotation = -3.403392
+rotation = -0.2617994
 scale = Vector2(4.6, 1)
 
 [node name="Player1StartPos" type="Node2D" parent="."]
@@ -150,7 +151,18 @@ volume_db = -20.0
 pitch_scale = 0.5
 bus = &"SFX"
 
+[node name="SoftlockSpots" type="Node2D" parent="."]
+
+[node name="SoftlockSpot" parent="SoftlockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_mqnvf")]
+position = Vector2(8875, -1870)
+starpoint = NodePath("../../StarPoints/Star3")
+starlines = [NodePath("../../StarLines/StarLine3"), NodePath("../../StarLines/StarLine5"), NodePath("../../StarLines/StarLine6")]
+
+[node name="CollisionPolygon2D" parent="SoftlockSpots/SoftlockSpot" index="0"]
+polygon = PackedVector2Array(636, -4734, 1452, 3767, -2221, 162)
+
 [editable path="StarLines/StarLine"]
 [editable path="StarLines/StarLine2"]
 [editable path="StarLines/StarLine3"]
 [editable path="StarLines/StarLine6"]
+[editable path="SoftlockSpots/SoftlockSpot"]

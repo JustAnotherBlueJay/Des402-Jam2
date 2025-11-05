@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dplppcmj8ii2o"]
+[gd_scene load_steps=7 format=3 uid="uid://dplppcmj8ii2o"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_64jqa"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="1_oixva"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="2_64jqa"]
 [ext_resource type="Texture2D" uid="uid://dyulsj6ycp56r" path="res://Art/Constellations/dorado.png" id="3_skg4s"]
 [ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="4_u62sj"]
+[ext_resource type="PackedScene" uid="uid://2gsqfad3serd" path="res://Scenes/Misc/SoftLockSpot.tscn" id="6_skg4s"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_64jqa")
@@ -57,7 +58,7 @@ scale = Vector2(3.8, 1)
 
 [node name="StarLine2" parent="StarLines" instance=ExtResource("2_64jqa")]
 position = Vector2(-1429, -351.0001)
-rotation = -0.7066942
+rotation = 2.4521875
 scale = Vector2(8.8, 1)
 
 [node name="CollisionShape2D" parent="StarLines/StarLine2/StaticBody2D" index="0"]
@@ -78,7 +79,7 @@ scale = Vector2(4.7, 1)
 
 [node name="StarLine5" parent="StarLines" instance=ExtResource("2_64jqa")]
 position = Vector2(-5537, 4996.9995)
-rotation = -1.3089969
+rotation = 1.8325957
 scale = Vector2(2.5, 1)
 
 [node name="StarLine6" parent="StarLines" instance=ExtResource("2_64jqa")]
@@ -127,7 +128,27 @@ texture = ExtResource("3_skg4s")
 stream = ExtResource("4_u62sj")
 volume_db = -20.0
 
+[node name="SoftLockSpots" type="Node2D" parent="."]
+
+[node name="SoftlockSpot" parent="SoftLockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_skg4s")]
+starpoint = NodePath("../../StarPoints/Star6")
+starlines = [NodePath("../../StarLines/StarLine5"), NodePath("../../StarLines/StarLine6"), NodePath("../../StarLines/StarLine7")]
+
+[node name="CollisionPolygon2D" parent="SoftLockSpots/SoftlockSpot" index="0"]
+position = Vector2(-6857, 4159)
+polygon = PackedVector2Array(597, 2501, -2497, 63, 1397, -934)
+
+[node name="SoftlockSpot2" parent="SoftLockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_skg4s")]
+position = Vector2(-1964, -1562)
+starpoint = NodePath("../../StarPoints/Star2")
+starlines = [NodePath("../../StarLines/StarLine2"), NodePath("../../StarLines/StarLine3"), NodePath("../../StarLines/StarLine4")]
+
+[node name="CollisionPolygon2D" parent="SoftLockSpots/SoftlockSpot2" index="0"]
+polygon = PackedVector2Array(-2891, 3851, -674, -963, 4076, -2230)
+
 [editable path="StarLines/StarLine2"]
 [editable path="StarLines/StarLine3"]
 [editable path="StarLines/StarLine6"]
 [editable path="StarLines/StarLine7"]
+[editable path="SoftLockSpots/SoftlockSpot"]
+[editable path="SoftLockSpots/SoftlockSpot2"]
