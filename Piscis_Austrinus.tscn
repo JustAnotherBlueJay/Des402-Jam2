@@ -139,7 +139,6 @@ text = "Piscis Austrinus"
 metadata/_edit_use_anchors_ = true
 
 [node name="SeaCreature" type="Sprite2D" parent="Node2D"]
-visible = false
 z_index = 12
 position = Vector2(3527, -2400)
 scale = Vector2(10, 10)
