@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=44 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Art/Background/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://dwwtsrtrfqvq2" path="res://Scenes/Constellations/Delphinus.tscn" id="4_3hf6u"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Misc/player.tscn" id="4_8xkvn"]
-[ext_resource type="PackedScene" uid="uid://dbcgwp12senr" path="res://Tetsudo.tscn" id="5_6dw4c"]
+[ext_resource type="PackedScene" path="res://Tetsudo.tscn" id="5_6dw4c"]
 [ext_resource type="PackedScene" uid="uid://dplppcmj8ii2o" path="res://Scenes/Constellations/Dorado.tscn" id="5_h86nx"]
 [ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Scenes/Constellations/Cetus.tscn" id="6_4mcbk"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://cg52xijmfl00s" path="res://Art/boat.png" id="15_mctxq"]
 [ext_resource type="Texture2D" uid="uid://co35326bst7gd" path="res://Art/AnimalArt/Cat/cat_no_arm (2).png" id="15_x0cd2"]
 [ext_resource type="Texture2D" uid="uid://c8vkbyvefxj6s" path="res://Art/AnimalArt/Cat/cat_arm (2).png" id="16_3slyh"]
+[ext_resource type="Shader" uid="uid://boylma3cs5guj" path="res://Scripts/Shaders/OceanShader.gdshader" id="16_6dw4c"]
 [ext_resource type="Texture2D" uid="uid://d2sh0hsrfj7pb" path="res://Art/AnimalArt/Crow/crow_no_arm.png" id="16_8s4c3"]
 [ext_resource type="Script" uid="uid://ckj5l47gyo4fr" path="res://Scripts/PointingArm.cs" id="17_xtmsi"]
+[ext_resource type="Script" uid="uid://di0h52drgfjem" path="res://Scripts/Ocean.cs" id="18_cxdnd"]
 [ext_resource type="Texture2D" uid="uid://chv6k54px6ikx" path="res://Art/AnimalArt/Crow/crow_arm.png" id="18_xtmsi"]
 [ext_resource type="Script" uid="uid://x5u3nv1f04gg" path="res://Scripts/BoatRock.cs" id="21_anuui"]
 [ext_resource type="PackedScene" uid="uid://dxgs4k4hirsyd" path="res://Scenes/Misc/StarField.tscn" id="23_1ms6g"]
@@ -59,11 +61,14 @@ size = Vector2(1050, 20)
 size = Vector2(20, 533)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5crlr"]
-shader = ExtResource("1_5crlr")
+shader = ExtResource("16_6dw4c")
 shader_parameter/scale = Vector2(20, 20)
 shader_parameter/strength = 0.25
 shader_parameter/fps = 6.0
 shader_parameter/noise = ExtResource("2_hbc2u")
+shader_parameter/player_1_pos = Vector2(0.5, 0.5)
+shader_parameter/player_2_pos = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.03
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mctxq"]
 shader = ExtResource("1_5crlr")
@@ -272,12 +277,15 @@ shape = SubResource("RectangleShape2D_hbc2u")
 position = Vector2(1028, 257)
 shape = SubResource("RectangleShape2D_hbc2u")
 
-[node name="Ocean" type="Sprite2D" parent="."]
+[node name="Ocean" type="Sprite2D" parent="." node_paths=PackedStringArray("player1", "player2")]
 z_index = 10
 material = SubResource("ShaderMaterial_5crlr")
 position = Vector2(511.87503, 70.62496)
 scale = Vector2(0.57430553, 0.5681944)
 texture = ExtResource("10_p5x2j")
+script = ExtResource("18_cxdnd")
+player1 = NodePath("../Player")
+player2 = NodePath("../Player2")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(408, 24.88)
@@ -373,6 +381,8 @@ text = "Joystick to move"
 [editable path="GameManager/Volans/StarLines/StarLine2"]
 [editable path="GameManager/Volans/StarLines/StarLine6"]
 [editable path="GameManager/Volans/StarLines/StarLine7"]
+[editable path="GameManager/Volans/SoftLockSpots/SoftlockSpot"]
+[editable path="GameManager/Volans/SoftLockSpots/SoftlockSpot2"]
 [editable path="Player"]
 [editable path="Player2"]
 [editable path="StarFields/StarField2"]
