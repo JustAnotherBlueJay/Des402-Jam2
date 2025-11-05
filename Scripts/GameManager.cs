@@ -152,8 +152,23 @@ public partial class GameManager : Node2D
 	//get the start position of the player for the next constelation
 	static public Vector2 GetPlayerStartPosition(int playerID)
 	{
-		//the constelation we are transitioning to
-		Constellation currentConstellation = instance.constellations[instance.currentIndex + 1];
+		
+		Constellation currentConstellation;
+		//try and get the next constellation, if we cant get it the array is looping back around
+		try
+		{
+			//the constelation we are transitioning to
+			currentConstellation = instance.constellations[instance.currentIndex + 1];
+		}
+		catch
+		{
+			currentConstellation = instance.constellations[0];
+
+		}
+		if (currentConstellation == null)
+		{
+			GD.Print("Null");
+		}
 
 		//get the position of the player spawn point
 		Vector2 playerStartPos = currentConstellation.GetPlayerStartPosition(playerID);

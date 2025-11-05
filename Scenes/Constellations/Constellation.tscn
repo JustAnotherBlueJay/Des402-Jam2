@@ -76,10 +76,10 @@ scale = Vector2(9, 9)
 texture = ExtResource("4_1uwjf")
 
 [node name="Player1StartPos" type="Node2D" parent="."]
-position = Vector2(-963, 6287)
+position = Vector2(-827, -4168)
 
 [node name="Player2StartPos" type="Node2D" parent="."]
-position = Vector2(-802, -4742)
+position = Vector2(-1300, 3721)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_jpnfu")
