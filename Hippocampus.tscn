@@ -153,10 +153,9 @@ bus = &"SFX"
 
 [node name="SoftlockSpots" type="Node2D" parent="."]
 
-[node name="SoftlockSpot" parent="SoftlockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_mqnvf")]
+[node name="SoftlockSpot" parent="SoftlockSpots" node_paths=PackedStringArray("starpoint") instance=ExtResource("6_mqnvf")]
 position = Vector2(8875, -1870)
 starpoint = NodePath("../../StarPoints/Star3")
-starlines = [NodePath("../../StarLines/StarLine3"), NodePath("../../StarLines/StarLine5"), NodePath("../../StarLines/StarLine6")]
 
 [node name="CollisionPolygon2D" parent="SoftlockSpots/SoftlockSpot" index="0"]
 polygon = PackedVector2Array(636, -4734, 1452, 3767, -2221, 162)
