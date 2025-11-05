@@ -139,6 +139,11 @@ public partial class Constellation : Node2D
             s.ResetStar(); 
         }
 
+		foreach (StarLine starLine in lines)
+		{
+            if (starLine == null) continue;
+			starLine.SetOneWayCollision(false);
+		}
 		UpdateLines();
 
         // Hide creature again

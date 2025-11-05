@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwwtsrtrfqvq2"]
+[gd_scene load_steps=7 format=3 uid="uid://dwwtsrtrfqvq2"]
 
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="1_4sdfi"]
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_a5xa2"]
 [ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="2_cnwlf"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="2_pw312"]
 [ext_resource type="Texture2D" uid="uid://djvqmeiut5fy2" path="res://Art/Constellations/delphinus.png" id="4_a5xa2"]
+[ext_resource type="PackedScene" uid="uid://2gsqfad3serd" path="res://Scenes/Misc/SoftLockSpot.tscn" id="6_bxc0u"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_a5xa2")
@@ -47,7 +48,7 @@ position = Vector2(-2, 0)
 
 [node name="StarLine" parent="StarLines" instance=ExtResource("2_pw312")]
 position = Vector2(-483, -6207)
-rotation = 3.403392
+rotation = 0.2617994
 scale = Vector2(6.321, 1)
 
 [node name="StarLine2" parent="StarLines" instance=ExtResource("2_pw312")]
@@ -106,5 +107,16 @@ volume_db = -20.0
 pitch_scale = 0.5
 bus = &"SFX"
 
+[node name="SoftlockSpots" type="Node2D" parent="."]
+
+[node name="SoftlockSpot" parent="SoftlockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_bxc0u")]
+position = Vector2(920, -3781)
+starpoint = NodePath("../../StarPoints/Star1")
+starlines = [NodePath("../../StarLines/StarLine"), NodePath("../../StarLines/StarLine2"), NodePath("../../StarLines/StarLine3"), NodePath("../../StarLines/StarLine4")]
+
+[node name="CollisionPolygon2D" parent="SoftlockSpots/SoftlockSpot" index="0"]
+polygon = PackedVector2Array(-4776, -3047, 2081, -1076, 4193, 2711, -2281, 1699)
+
 [editable path="StarLines/StarLine2"]
 [editable path="StarLines/StarLine4"]
+[editable path="SoftlockSpots/SoftlockSpot"]

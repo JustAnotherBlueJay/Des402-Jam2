@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://j3wni6xo6hw4"]
+[gd_scene load_steps=7 format=3 uid="uid://j3wni6xo6hw4"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_83g4i"]
 [ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="2_hikkk"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="2_hynlv"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="3_shpog"]
 [ext_resource type="Texture2D" uid="uid://de8ug20r5tjws" path="res://Art/Constellations/cetus.png" id="4_83g4i"]
+[ext_resource type="PackedScene" uid="uid://2gsqfad3serd" path="res://Scenes/Misc/SoftLockSpot.tscn" id="6_c4b3o"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
 script = ExtResource("1_83g4i")
@@ -156,7 +157,27 @@ volume_db = -20.0
 pitch_scale = 0.5
 bus = &"SFX"
 
+[node name="SoftLockSpots" type="Node2D" parent="."]
+
+[node name="SoftlockSpot" parent="SoftLockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_c4b3o")]
+position = Vector2(-7518, -10455)
+starpoint = NodePath("../../StarPoints/Star2")
+starlines = [NodePath("../../StarLines/StarLine8"), NodePath("../../StarLines/StarLine9"), NodePath("../../StarLines/StarLine10")]
+
+[node name="CollisionPolygon2D" parent="SoftLockSpots/SoftlockSpot" index="0"]
+polygon = PackedVector2Array(1213, -2649, 2154, 3013, -3144, -173)
+
+[node name="SoftlockSpot2" parent="SoftLockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_c4b3o")]
+position = Vector2(10002, 5974)
+starpoint = NodePath("../../StarPoints/Star3")
+starlines = [NodePath("../../StarLines/StarLine3"), NodePath("../../StarLines/StarLine4"), NodePath("../../StarLines/StarLine5"), NodePath("../../StarLines/StarLine6"), NodePath("../../StarLines/StarLine7")]
+
+[node name="CollisionPolygon2D" parent="SoftLockSpots/SoftlockSpot2" index="0"]
+polygon = PackedVector2Array(-5641, -3032, -447, -3095, 7449, -1110, 4029, 3746, -5599, 2057)
+
 [editable path="StarLines/StarLine6"]
 [editable path="StarLines/StarLine7"]
 [editable path="StarLines/StarLine8"]
 [editable path="StarLines/StarLine9"]
+[editable path="SoftLockSpots/SoftlockSpot"]
+[editable path="SoftLockSpots/SoftlockSpot2"]

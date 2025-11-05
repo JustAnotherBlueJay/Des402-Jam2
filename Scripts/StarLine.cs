@@ -5,6 +5,7 @@ public partial class StarLine : Node2D
 {
 	[Export] Sprite2D mySprite;
 	[Export] StaticBody2D myStaticBody;
+	[Export] CollisionShape2D myCollisionShape;
 
 	public bool isVisible = false;
 
@@ -26,6 +27,12 @@ public partial class StarLine : Node2D
 		mySprite.Hide();
 		myStaticBody.SetCollisionLayerValue(2,false);
 
+	}
+
+	//for preventing softlocks
+	public void SetOneWayCollision(bool isOneWay)
+	{
+		myCollisionShape.OneWayCollision = isOneWay;
 	}
 
 	public void ShowLine()

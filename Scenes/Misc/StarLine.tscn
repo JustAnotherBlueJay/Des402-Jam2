@@ -17,10 +17,11 @@ shader_parameter/noise = ExtResource("2_l2wkx")
 shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/smoothness = 0.1
 
-[node name="StarLine" type="Node2D" node_paths=PackedStringArray("mySprite", "myStaticBody") groups=["Lines"]]
+[node name="StarLine" type="Node2D" node_paths=PackedStringArray("mySprite", "myStaticBody", "myCollisionShape") groups=["Lines"]]
 script = ExtResource("1_l2wkx")
 mySprite = NodePath("Sprite2D")
 myStaticBody = NodePath("StaticBody2D")
+myCollisionShape = NodePath("StaticBody2D/CollisionShape2D")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2

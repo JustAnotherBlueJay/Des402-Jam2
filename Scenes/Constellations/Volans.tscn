@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d5nh520ve6q3"]
+[gd_scene load_steps=7 format=3 uid="uid://d5nh520ve6q3"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_njqr5"]
 [ext_resource type="AudioStream" uid="uid://dop0en1chxyxo" path="res://Audio/SFX/SFXtide8.wav" id="2_1765d"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="2_g8r76"]
 [ext_resource type="PackedScene" uid="uid://b1rlavjrpyau8" path="res://Scenes/Misc/StarLine.tscn" id="4_g8r76"]
+[ext_resource type="PackedScene" uid="uid://2gsqfad3serd" path="res://Scenes/Misc/SoftLockSpot.tscn" id="6_smkwn"]
 [ext_resource type="Texture2D" uid="uid://cq88swqtussqb" path="res://Art/Constellations/volans.png" id="8_4qttt"]
 
 [node name="Node2D" type="Node2D" node_paths=PackedStringArray("creature", "stars", "lines", "lineStarA", "lineStarB", "playerStartPositions")]
@@ -79,7 +80,7 @@ scale = Vector2(8.949169, 0.99999994)
 
 [node name="StarLine5" parent="StarLines" instance=ExtResource("4_g8r76")]
 position = Vector2(8837, 2431)
-rotation = -0.8274876
+rotation = 2.3282692
 scale = Vector2(5.3010454, 0.99999994)
 
 [node name="StarLine6" parent="StarLines" instance=ExtResource("4_g8r76")]
@@ -124,7 +125,27 @@ texture = ExtResource("8_4qttt")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_1765d")
 
+[node name="SoftLockSpots" type="Node2D" parent="."]
+
+[node name="SoftlockSpot" parent="SoftLockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_smkwn")]
+position = Vector2(-5644, -3461)
+starpoint = NodePath("../../StarPoints/Star3")
+starlines = [NodePath("../../StarLines/StarLine"), NodePath("../../StarLines/StarLine2"), NodePath("../../StarLines/StarLine3")]
+
+[node name="CollisionPolygon2D" parent="SoftLockSpots/SoftlockSpot" index="0"]
+polygon = PackedVector2Array(1235, -3441, 4557, 3202, -5616, 786)
+
+[node name="SoftlockSpot2" parent="SoftLockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_smkwn")]
+position = Vector2(5272, 1695)
+starpoint = NodePath("../../StarPoints/Star3")
+starlines = [NodePath("../../StarLines/StarLine5"), NodePath("../../StarLines/StarLine6"), NodePath("../../StarLines/StarLine7")]
+
+[node name="CollisionPolygon2D" parent="SoftLockSpots/SoftlockSpot2" index="0"]
+polygon = PackedVector2Array(5300, -1467, 1375, 2598, -5663, -1490)
+
 [editable path="StarLines/StarLine"]
 [editable path="StarLines/StarLine2"]
 [editable path="StarLines/StarLine6"]
 [editable path="StarLines/StarLine7"]
+[editable path="SoftLockSpots/SoftlockSpot"]
+[editable path="SoftLockSpots/SoftlockSpot2"]
