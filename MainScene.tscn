@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://ck0ku6f1k2nem"]
+[gd_scene load_steps=42 format=3 uid="uid://ck0ku6f1k2nem"]
 
 [ext_resource type="Shader" uid="uid://dhi66gb4ncefa" path="res://Scripts/Shaders/Squiggle Vision/SquiggleVision.gdshader" id="1_5crlr"]
 [ext_resource type="Script" uid="uid://cl3vpnvtdsyq3" path="res://Scripts/GameManager.cs" id="1_hbc2u"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bcd7f6hhld8qv" path="res://Art/Background/sky_stargaze_brighter.jpg" id="3_torvr"]
 [ext_resource type="PackedScene" uid="uid://dwwtsrtrfqvq2" path="res://Scenes/Constellations/Delphinus.tscn" id="4_3hf6u"]
 [ext_resource type="PackedScene" uid="uid://cb487l35na6eo" path="res://Scenes/Misc/player.tscn" id="4_8xkvn"]
+[ext_resource type="PackedScene" uid="uid://dbcgwp12senr" path="res://Tetsudo.tscn" id="5_6dw4c"]
 [ext_resource type="PackedScene" uid="uid://dplppcmj8ii2o" path="res://Scenes/Constellations/Dorado.tscn" id="5_h86nx"]
 [ext_resource type="PackedScene" uid="uid://j3wni6xo6hw4" path="res://Scenes/Constellations/Cetus.tscn" id="6_4mcbk"]
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
@@ -109,7 +110,7 @@ animations = [{
 
 [node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("constellations")]
 script = ExtResource("1_hbc2u")
-constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Dorado"), NodePath("Volans"), NodePath("Hippocampus"), NodePath("Cetus")]
+constellations = [NodePath("Limpet"), NodePath("Hydrus"), NodePath("Delphinus"), NodePath("Testudo"), NodePath("Dorado"), NodePath("Volans"), NodePath("Hippocampus"), NodePath("Cetus")]
 
 [node name="Limpet" parent="GameManager" instance=ExtResource("2_8xkvn")]
 visible = false
@@ -142,6 +143,12 @@ z_index = 10
 position = Vector2(458, 212)
 scale = Vector2(0.02, 0.02)
 TargetPosition = Vector2(458, 212)
+
+[node name="Testudo" parent="GameManager" instance=ExtResource("5_6dw4c")]
+visible = false
+position = Vector2(549.99994, 202.99998)
+scale = Vector2(0.031, 0.031)
+TargetPosition = Vector2(549.99994, 202.99998)
 
 [node name="Dorado" parent="GameManager" instance=ExtResource("5_h86nx")]
 visible = false
@@ -362,6 +369,10 @@ text = "Joystick to move"
 
 [editable path="GameManager/Hydrus"]
 [editable path="GameManager/Volans"]
+[editable path="GameManager/Volans/StarLines/StarLine"]
+[editable path="GameManager/Volans/StarLines/StarLine2"]
+[editable path="GameManager/Volans/StarLines/StarLine6"]
+[editable path="GameManager/Volans/StarLines/StarLine7"]
 [editable path="Player"]
 [editable path="Player2"]
 [editable path="StarFields/StarField2"]
