@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7f5oepxbhif0"]
+[gd_scene load_steps=7 format=3 uid="uid://bt1xswbclfxby"]
 
 [ext_resource type="Script" uid="uid://dngirtyp5p6je" path="res://Scripts/Constellation.cs" id="1_mrwmu"]
 [ext_resource type="PackedScene" uid="uid://bhlnijb6vkokt" path="res://Scenes/Misc/StarPoint.tscn" id="2_nro0f"]
@@ -58,7 +58,7 @@ position = Vector2(-2, 0)
 
 [node name="StarLine" parent="StarLines" instance=ExtResource("3_alwtr")]
 position = Vector2(3770, -1077.0001)
-rotation = 2.5280032
+rotation = -0.6143559
 scale = Vector2(2.8, 1)
 
 [node name="StarLine2" parent="StarLines" instance=ExtResource("3_alwtr")]
@@ -85,7 +85,7 @@ one_way_collision = true
 
 [node name="StarLine4" parent="StarLines" instance=ExtResource("3_alwtr")]
 position = Vector2(5901.9995, -916)
-rotation = -1.7769458
+rotation = 1.3648474
 scale = Vector2(1.7, 1)
 
 [node name="StarLine5" parent="StarLines" instance=ExtResource("3_alwtr")]
@@ -160,18 +160,8 @@ starlines = [NodePath("../../StarLines/StarLine"), NodePath("../../StarLines/Sta
 [node name="CollisionPolygon2D" parent="SoftlockSpots/SoftlockSpot" index="0"]
 polygon = PackedVector2Array(-3405, -272, -2849, 2324, -6558, 2046)
 
-[node name="SoftlockSpot2" parent="SoftlockSpots" node_paths=PackedStringArray("starpoint", "starlines") instance=ExtResource("6_32d5t")]
-position = Vector2(8875, -1870)
-starpoint = NodePath("../../StarPoints/Star4")
-starlines = [NodePath("../../StarLines/StarLine2"), NodePath("../../StarLines/StarLine3"), NodePath("../../StarLines/StarLine5"), NodePath("../../StarLines/StarLine6"), NodePath("../../StarLines/StarLine7")]
-
-[node name="CollisionPolygon2D" parent="SoftlockSpots/SoftlockSpot2" index="0"]
-position = Vector2(1453, 0)
-polygon = PackedVector2Array(-12277, 3283, -17038, 3128, -19078, 1211, -15059, -1169, -8815, 2170)
-
 [editable path="StarLines/StarLine2"]
 [editable path="StarLines/StarLine3"]
 [editable path="StarLines/StarLine6"]
 [editable path="StarLines/StarLine7"]
 [editable path="SoftlockSpots/SoftlockSpot"]
-[editable path="SoftlockSpots/SoftlockSpot2"]
