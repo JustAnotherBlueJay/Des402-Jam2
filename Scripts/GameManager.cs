@@ -22,8 +22,6 @@ public partial class GameManager : Node2D
 		instance = this;
 
 
-		GD.Print($"[GM] Ready. Total constellations = {constellations.Length}");
-
 		// Hide all constellations at start
 		foreach (var c in constellations)
 		{
@@ -44,7 +42,6 @@ public partial class GameManager : Node2D
 		}
 
 	var c = constellations[index];
-	GD.Print($"[GM] ShowConstellation({index})");
 
 	// Fade out previous constellation if any
 	if (currentIndex >= 0 && currentIndex < constellations.Length && currentIndex != index)
@@ -74,8 +71,7 @@ public partial class GameManager : Node2D
 
 	private async void OnConstellationFinished()
 {
-	GD.Print("[GM] Constellation finished!");
-
+	
 	//constellation completed event called
 	E_ConstellationCompleted();
 
@@ -98,11 +94,10 @@ public partial class GameManager : Node2D
 
 		// Move onto next constellation
 		currentIndex++;
-	if (currentIndex >= constellations.Length)
+	/*if (currentIndex >= constellations.Length)
 	{
-		GD.Print("[GM] All constellations complete!");
 		//return;
-	}
+	}*/
 
 	// fades in next constellation
 	E_NewConstellationLoaded();

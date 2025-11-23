@@ -4,10 +4,13 @@ using System;
 
 public partial class StarPoint : Area2D
 {
-	[Export] public bool isTarget = false; 
+
+    private static float inactiveBrightness = 1.0f;
+
+    [Export] public bool isTarget = false; 
 	[Export] public bool isComplete = false; 
 	[Export] public Color activeColor = new Color(1, 1, 0.8f); // glowing yellow
-	[Export] public Color inactiveColor = new Color(0.2f, 0.2f, 0.5f); // dim blue
+	[Export] public Color inactiveColor = new Color(0.2f, 0.2f, 0.7f); // dim blue
 
 	private bool isResetTarget = false;
 	
@@ -75,9 +78,36 @@ public partial class StarPoint : Area2D
 		}
 	}
 
-	private void UpdateVisual()
+
+    public override void _Process(double delta)
+    {
+        if (Input.IsKeyPressed(Key.Equal))
+        {
+            inactiveBrightness = Mathf.Clamp(inactiveBrightness + 0.0005f, 0.1f, 1);
+            UpdateVisual();
+        }
+
+        if (Input.IsKeyPressed(Key.Minus))
+        {
+            inactiveBrightness = Mathf.Clamp(inactiveBrightness - 0.0005f, 0.1f, 1);
+            UpdateVisual();
+        }
+    }
+
+    private void UpdateVisual()
 	{
-		if (sprite == null) return;
-		sprite.Modulate = isComplete ? activeColor : inactiveColor;
-	}
+		if (sprite == null)
+		{
+			return;
+		}
+		
+        if (isComplete)
+        {
+            sprite.Modulate = activeColor;
+        }
+        else
+        {
+            sprite.Modulate = new Color(inactiveColor.R * inactiveBrightness, inactiveColor.G * inactiveBrightness, inactiveColor.B * inactiveBrightness, 1);
+        }
+    }
 }

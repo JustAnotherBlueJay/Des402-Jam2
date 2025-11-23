@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://38orou71b711" path="res://Art/PlayerSymbols/crow_symbol.png" id="6_5crlr"]
 [ext_resource type="PackedScene" uid="uid://d5nh520ve6q3" path="res://Scenes/Constellations/Volans.tscn" id="7_3hf6u"]
 [ext_resource type="Texture2D" uid="uid://f2b5xkc8wl3f" path="res://Art/Background/sky_now with PINK.png" id="7_yvb8b"]
-[ext_resource type="PackedScene" uid="uid://c7f5oepxbhif0" path="res://Piscis_Austrinus.tscn" id="10_lppff"]
+[ext_resource type="PackedScene" uid="uid://bt1xswbclfxby" path="res://Piscis_Austrinus.tscn" id="10_lppff"]
 [ext_resource type="Texture2D" uid="uid://bxtxny5onl2q8" path="res://Art/Background/cleaned_ocean.png" id="10_p5x2j"]
 [ext_resource type="AudioStream" uid="uid://dnku7x0rmms4d" path="res://Audio/Music/tideMusic.ogg" id="11_p5x2j"]
 [ext_resource type="AudioStream" uid="uid://1r8wyo4qiule" path="res://Audio/SFX/SFXtide4.wav" id="12_8qg48"]
