@@ -176,16 +176,6 @@ z_index = 10
 position = Vector2(528, 212)
 scale = Vector2(0.02, 0.02)
 
-[node name="AudioStreamPlayer" parent="GameManager/Volans" index="5"]
-volume_db = -20.0
-pitch_scale = 0.5
-
-[node name="SoftlockSpot" parent="GameManager/Volans/SoftLockSpots" index="0" node_paths=PackedStringArray("starlines")]
-starlines = []
-
-[node name="SoftlockSpot2" parent="GameManager/Volans/SoftLockSpots" index="1" node_paths=PackedStringArray("starlines")]
-starlines = []
-
 [node name="Hippocampus" parent="GameManager" instance=ExtResource("25_7jkkr")]
 visible = false
 z_index = 10
@@ -389,13 +379,6 @@ theme_override_font_sizes/font_size = 50
 text = "Joystick to move"
 
 [editable path="GameManager/Hydrus"]
-[editable path="GameManager/Volans"]
-[editable path="GameManager/Volans/StarLines/StarLine"]
-[editable path="GameManager/Volans/StarLines/StarLine2"]
-[editable path="GameManager/Volans/StarLines/StarLine6"]
-[editable path="GameManager/Volans/StarLines/StarLine7"]
-[editable path="GameManager/Volans/SoftLockSpots/SoftlockSpot"]
-[editable path="GameManager/Volans/SoftLockSpots/SoftlockSpot2"]
 [editable path="Player"]
 [editable path="Player2"]
 [editable path="StarFields/StarField2"]
